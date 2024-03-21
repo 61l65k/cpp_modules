@@ -1,11 +1,11 @@
 NAME=megaphone
 CC=c++
-CFLAGS=-Wall -Wextra -Werror --std=c++98
+CPPFLAGS=-Wall -Wextra -Werror --std=c++98
 
 all: $(NAME)
 
 $(NAME): $(NAME).cpp
-	$(CC) $(CFLAGS) $(NAME).cpp -o $(NAME)
+	$(CC) $(CPPFLAGS) $(NAME).cpp -o $(NAME)
 
 clean:
 	rm -f $(NAME).o

@@ -1,18 +1,15 @@
-NAME=phonebook
+NAME=pbook
 CC=c++
-CFLAGS=-Wall -Wextra -Werror --std=c++98
+CPPFLAGS=-Wall -Wextra -Werror --std=c++98 -pedantic
 SRCS=		PhoneBook.cpp \
 			Contact.cpp \
-			main.cpp
-
-HEADERS=	PhoneBook.hpp \
-			Contact.hpp
-
+			main.cpp	\
+			handlers.cpp
 
 all: $(NAME)
 
 $(NAME): $(SRCS) $(HEADERS)
-	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(HEADERS)
+	$(CC) $(CPPFLAGS) -o $(NAME) $(SRCS)
 
 clean:
 	rm -f $(NAME).o
