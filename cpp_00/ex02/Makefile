@@ -1,16 +1,23 @@
-NAME=megaphone
-CC=c++
-CFLAGS=-Wall -Wextra -Werror --std=c++98
+SRC = Account.cpp tests.cpp
+CC = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+NAME = cake
+UNAME = $(shell uname -s)
+ifeq ($(UNAME), Linux)
+CPPFLAGS = -Wall -Wextra -pedantic
+endif
 
 all: $(NAME)
 
-$(NAME): $(NAME).cpp
-	$(CC) $(CFLAGS) $(NAME).cpp -o $(NAME)
+$(NAME): $(SRC)
+	$(CC) $(CPPFLAGS) $(SRC) -o $(NAME)
 
 clean:
-	rm -f $(NAME).o
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
-re: clean all fclean
+re: fclean $(NAME)
+
+.PHONY: all clean fclean re
