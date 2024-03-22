@@ -1,15 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/22 05:28:34 by apyykone          #+#    #+#             */
+/*   Updated: 2024/03/22 05:28:36 by apyykone         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
 
-PhoneBook::PhoneBook() : numContacts(0) {}
+PhoneBook::PhoneBook() : numcontacts(0), oldestcontactindex(0){}
 
 void PhoneBook::addContact(const Contact& contact)
 {
-    if (numContacts < MAX_CONTACTS)
-        contacts[numContacts++] = contact;
+    if (numcontacts < MAX_CONTACTS)
+        contacts[numcontacts++] = contact;
     else
-        std::cout << "Phone book is full. Cannot add more contacts." << std::endl;
+    {
+        contacts[oldestcontactindex] = contact;
+        oldestcontactindex = (oldestcontactindex + 1) % MAX_CONTACTS;
+    }
 }
 
 static std::string truncate(const std::string& str, int width)
@@ -32,26 +47,24 @@ void PhoneBook::displayContacts() const
                 << std::setw(width) << "Nickname" << separator << std::endl;
     std::cout << border << std::endl;
 
-    for (int i = 0; i < numContacts; ++i)
+    for (int i = 0; i < numcontacts; ++i)
     {
         std::cout << separator << std::setw(width) << (i + 1) << separator
                   << std::setw(width) << truncate(contacts[i].get_firstname(), width) << separator
                   << std::setw(width) << truncate(contacts[i].get_lastname(), width) << separator
                   << std::setw(width) << truncate(contacts[i].get_nickname(), width) << separator << std::endl;
     }
-
     std::cout << border << std::endl;
 }
 
-
-int PhoneBook::getNumContacts() const
+int PhoneBook::get_num_contacts() const
 {
-    return numContacts;
+    return numcontacts;
 }
 
-void PhoneBook::displayContactInfo(int index) const
+void PhoneBook::display_contact_info(int index) const
 {
-    if (index >= 0 && index < numContacts)
+    if (index >= 0 && index < numcontacts)
     {
         std::cout << "Contact Info:" << std::endl;
         std::cout << "First Name: " << contacts[index].get_firstname() << std::endl;

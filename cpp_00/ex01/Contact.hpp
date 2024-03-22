@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/22 05:27:59 by apyykone          #+#    #+#             */
+/*   Updated: 2024/03/22 05:28:00 by apyykone         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
@@ -16,7 +28,7 @@ public:
     Contact(const std::string& firstName, const std::string& lastName, const std::string& nickname,
             const std::string& phoneNumber, const std::string& darkestSecret);
 
-    void setFirstName(const std::string& firstName);
+    void set_firstname(const std::string& firstName);
     void set_lastname(const std::string& lastName);
     void set_phonenumber(const std::string& phoneNumber);
     void set_nickname(const std::string& nickname);

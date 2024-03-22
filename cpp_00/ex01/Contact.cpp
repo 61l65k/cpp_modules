@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/22 05:27:50 by apyykone          #+#    #+#             */
+/*   Updated: 2024/03/22 05:27:52 by apyykone         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 
 Contact::Contact() {}
@@ -6,7 +18,7 @@ Contact::Contact(const std::string& firstName, const std::string& lastName, cons
                  const std::string& phoneNumber, const std::string& darkestSecret)
     : firstName(firstName), lastName(lastName), nickname(nickname), phoneNumber(phoneNumber), darkestSecret(darkestSecret) {}
 
-void Contact::setFirstName(const std::string& firstName)
+void Contact::set_firstname(const std::string& firstName)
 {
     this->firstName = firstName;
 }
