@@ -1,9 +1,8 @@
-SRC =	main.cpp
+SRC =	HumanA.cpp HumanB.cpp main.cpp Weapon.cpp
 OBJS = $(SRC:.cpp=.o)
-RM = rm -f
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-NAME = brein
+NAME = groupfight
 
 all: $(NAME)
 

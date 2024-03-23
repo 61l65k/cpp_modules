@@ -1,5 +1,6 @@
 SRC =	main.cpp newZombie.cpp \
 		randomChump.cpp  Zombie.cpp
+RM = rm -f
 OBJS = $(SRC:.cpp=.o)
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
