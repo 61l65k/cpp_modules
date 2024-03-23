@@ -1,20 +1,24 @@
-SRC =	HumanA.cpp HumanB.cpp main.cpp Weapon.cpp
+SRC =	main.cpp 
 OBJS = $(SRC:.cpp=.o)
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-NAME = groupfight
-RM = rm -f
+TESTFLAGS = -Wall -Wextra -Werror -pedantic
+NAME = mr_replace
+TEST = tester
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
+test:
+	$(CXX) $(TESTFLAGS) tests.cpp -o $(TEST)
+
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) test_*
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(TEST)
 
 re: fclean $(NAME)
 
