@@ -1,15 +1,16 @@
 SRC = Account.cpp tests.cpp
-CC = c++
+OBJS = $(SRC:.cpp=.o)
+CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 NAME = cake
 
 all: $(NAME)
 
-$(NAME): $(SRC)
-	$(CC) $(CPPFLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
