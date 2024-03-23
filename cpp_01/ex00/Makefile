@@ -1,16 +1,17 @@
 SRC =	main.cpp newZombie.cpp \
 		randomChump.cpp  Zombie.cpp
-CC = c++
+OBJS = $(SRC:.cpp=.o)
+CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 NAME = dumbie
 
 all: $(NAME)
 
-$(NAME): $(SRC)
-	$(CC) $(CPPFLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)

@@ -1,5 +1,6 @@
-SRC =	main.cpp Zombie.cpp zombieHorde.cpp
-CC = c++
+SRCS =	main.cpp Zombie.cpp zombieHorde.cpp
+OBJS = $(SRCS:.cpp=.o)
+CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 NAME = dumbiegang
 UNAME_S := $(shell uname -s)
@@ -9,11 +10,11 @@ endif
 
 all: $(NAME)
 
-$(NAME): $(SRC)
-	$(CC) $(CPPFLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
