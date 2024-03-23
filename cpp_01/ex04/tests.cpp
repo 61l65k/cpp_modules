@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 16:02:09 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/23 17:59:47 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/03/23 19:18:32 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void createRandomFile(const std::string& filename, size_t lineCount, size_t maxW
 
 
 bool run_string_replace(const std::string& filename, const std::string& s1, const std::string& s2) {
-    std::string command = "./mr_replace " + filename + " " + s1 + " " + s2;
+    std::string command = "./mr_replace \"" + filename + "\" \"" + s1 + "\" \"" + s2 + "\"";
+    std::cout << "\033[35m" << "Running command: " << command  << "\033[0m" << std::endl;
     return system(command.c_str()) == 0;
 }
 
@@ -126,11 +127,13 @@ bool checkOutputFile(const std::string& modifiedFilename, const std::string& s1,
     return true;
 }
 
-int main() {
+int main()
+{
     srand(static_cast<unsigned>(time(NULL)));
-    const size_t testFileCount = 5;
-    const size_t maxWordsPerLine = 10;
-    const size_t lineCount = 12;
+    const size_t testFileCount = 30;
+    const size_t maxWordsPerLine = 20;
+    const size_t lineCount = 20;
+    size_t       passedTests = 0;
 
     for (size_t i = 0; i < testFileCount; ++i) {
         std::string s1 = generateRandomWord();
@@ -147,7 +150,17 @@ int main() {
         if (!checkOutputFile(filename + ".replace", s1, s2))
             std::cerr << "Output file check failed for file: " << filename << std::endl;
         else
+        {
             std::cout << "\033[32m" << "Test passed for file: " << filename << "\033[0m" << " Replaced all occurences of " + s1 + " to --> " + s2 << std::endl;
+            passedTests++;
+        }
     }
+    if (passedTests == testFileCount)
+        std::cout << "\033[1;32m\n\n\tAll tests passed!\n\n\033[0m\n";
+    else
+        std::cout << "\033[1;31m\n\n\tSome tests failed. Check the errors above.\033[0m\n";
+    
+    std::cout << "\033[33m\t\tYou can modify the file sizes & line counts and everything from the main.cpp .\033[0m\n";
+    std::cout << "\033[1;33m\t\tReminder: Test escape sequences separately to ensure correct functionality !!.\033[0m\n\n\n";
     return 0;
 }
