@@ -22,7 +22,7 @@ class Harl {
         void complain( std::string level );
         int getIndex( std::string level ) const;
         void setMinLevel( std::string level);
-
+        void complain_all( void );
     private:
         static std::string const _complains[4];
         int _minLevel;

@@ -78,3 +78,10 @@ void Harl::setMinLevel( std::string level ) {
             this->_minLevel = -1;
     }
 }
+
+void Harl::complain_all( void )
+{
+    for (int i = this->_minLevel ; i < 4; i++) {
+        complain(_complains[i]);
+    }
+}

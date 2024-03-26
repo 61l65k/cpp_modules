@@ -36,13 +36,9 @@ int main( int argc, char **argv ) {
 
 	if (argc > 1)
 		harl.setMinLevel(argv[1]);
-		
-	harl.complain("DEBUG");
-	harl.complain("INFO");
-	harl.complain("WARNING");
-	harl.complain("ERROR");
-	harl.complain("DEBUGGGG"); // is not a valid level and will output nothing
-	harl.complain(""); // is not a valid level and will output nothing
 	
+
+	harl.complain_all();
+
 	return 0;
 }
