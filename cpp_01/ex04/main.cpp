@@ -15,7 +15,7 @@
 #include <sstream>
 #include <string>
 
-std::string interpretEscapeSequences(const std::string& str) {
+std::string interpret_escape_sequences(const std::string& str) {
     std::string result;
     for (size_t i = 0; i < str.length(); ++i) {
         if (str[i] == '\\' && i + 1 < str.length())
@@ -47,13 +47,13 @@ void ft_replaceStrings(const std::string& fileName, const std::string& s1, const
     buffer << file.rdbuf();
     std::string content = buffer.str();
 
-    std::string actualS1 = interpretEscapeSequences(s1);
-    std::string actualS2 = interpretEscapeSequences(s2);
+    std::string replace_str = interpret_escape_sequences(s1);
+    std::string new_str = interpret_escape_sequences(s2);
 
     size_t pos = 0;
-    while ((pos = content.find(actualS1, pos)) != std::string::npos) {
-        content.replace(pos, actualS1.length(), actualS2);
-        pos += actualS2.length();
+    while ((pos = content.find(replace_str, pos)) != std::string::npos) {
+        content.replace(pos, replace_str.length(), new_str);
+        pos += new_str.length();
     }
 
     file.close();
@@ -68,7 +68,7 @@ void ft_replaceStrings(const std::string& fileName, const std::string& s1, const
 
 int main(int argc, char **argv) {
     if (argc != 4) {
-        std::cout << "Invalid number of arguments. You must specify a file name, the original string to replace, and the target string for replacement.\n";
+        std::cout << "Invalid args: ./mr_replace <filename> <replaced_string> <new_string>\n";
         return 1;
     }
 
