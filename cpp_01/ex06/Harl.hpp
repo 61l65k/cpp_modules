@@ -21,11 +21,11 @@ class Harl {
         ~Harl(void);
         void complain( std::string level );
         int getIndex( std::string level ) const;
-        void setMinLevel( std::string level);
+        void set_start_index( std::string level);
         void complain_all( void );
     private:
         static std::string const _complains[4];
-        int _minLevel;
+        int _start_level;
         int _printed;
         
         void debug( void );
