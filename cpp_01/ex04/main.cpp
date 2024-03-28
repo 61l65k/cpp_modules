@@ -51,6 +51,15 @@ void ft_replaceStrings(const std::string& fileName, const std::string& s1, const
     std::string new_str = interpret_escape_sequences(s2);
 
     size_t pos = 0;
+    if (s1.empty() || s2.empty())
+    {
+        std::cout << "The replacement strings can't be empty.\n";
+        return file.close();
+    }
+    if (content.empty() ) {
+        std::cout << "The file is empty.\n";
+        return file.close();
+    }
     while ((pos = content.find(replace_str, pos)) != std::string::npos) {
         content.replace(pos, replace_str.length(), new_str);
         pos += new_str.length();
