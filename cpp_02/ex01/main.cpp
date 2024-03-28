@@ -6,34 +6,32 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 09:37:50 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/28 10:50:47 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/03/28 11:46:29 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-/** Consturctrs ( default, copy, assign ) ~destructor
-* 1. First instance with normal constructor
-* 2. Second instance with copy constructor-
-* we copy the state of the first instance to the second instance
-* 3. Third instance with the copy assignment operator
-*/
-/** Fixed point example with 8 fractional bits
-* example: 1.5 represented in fixed point format
-* 1.5 × 2^8 = 1.5 × 256 = 384
+/** 
+* Use of other operator assigments overloaded operator<<
+* int the overload operator when use before the class Fixed-
+* we append the _fixed_point as an float to the ostream  
 */
 
 int main( void )
 {
     Fixed a;
-    Fixed b( a );
-    Fixed c;
-
-    c = b;
-
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-
+    Fixed const b( 10 );
+    Fixed const c( 42.42f );
+    Fixed const d( b );
+    a = Fixed( 1234.4321f );
+    std::cout << "a is " << a << std::endl;
+    std::cout << "b is " << b << std::endl;
+    std::cout << "c is " << c << std::endl;
+    std::cout << "d is " << d << std::endl;
+    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
     return 0;
 }
