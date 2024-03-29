@@ -4,6 +4,11 @@ RM = rm -f
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 NAME = ClapFight
+UNAME := $(shell uname)
+
+ifeq ($(UNAME), Linux)
+	CPPFLAGS = -Wall -Wextra -Werror
+endif
 
 all: $(NAME)
 

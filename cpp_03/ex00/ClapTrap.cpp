@@ -6,44 +6,133 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:49:15 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/28 17:49:16 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/03/29 18:58:15 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name): name(name), hitPoints(10), energyPoints(10), attackDamage(0)
+// Constructors ---------------------------------------------------------------
+
+ClapTrap::ClapTrap( void ) : name("nameless"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-    std::cout << "ClapTrap spawned !" << std::endl;
+    init_claptrap();
+}
+
+ClapTrap::ClapTrap(const std::string& name): name(name), hitPoints(10), energyPoints(10), attackDamage(0)
+{
+    init_claptrap();
+}
+
+ClapTrap::ClapTrap(const ClapTrap &clapTrap)
+    : name(clapTrap.name),
+      hitPoints(clapTrap.hitPoints),
+      energyPoints(clapTrap.energyPoints),
+      attackDamage(clapTrap.attackDamage)
+{
+    const int boxWidth = 50;
+
+    std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
+    std::cout << border << std::endl;
+    std::cout << GREEN << "ClapTrap copy constructed from :" << RESET << BLUE << clapTrap.name << RESET << std::endl;
+    std::cout << GREEN << this->name << " ClapTrap created 👶!" << RESET << std::endl << std::endl;
+    std::cout << border << std::endl << std::endl;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &clapTrap)
+{
+    const int boxWidth = 50;
+
+    if (this != &clapTrap)
+    {
+        this->name = clapTrap.name;
+        this->hitPoints = clapTrap.hitPoints;
+        this->energyPoints = clapTrap.energyPoints;
+        this->attackDamage = clapTrap.attackDamage;
+    }
+    std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
+    std::cout << border << std::endl;
+    std::cout << GREEN << "ClapTrap created with copy assigment! from :" << RESET << BLUE << clapTrap.name << RESET << std::endl << std::endl;
+    std::cout << GREEN << this->name << " ClapTrap created 👶!" << RESET << std::endl << std::endl;
+    std::cout << border << std::endl << std::endl;
+    return *this;
 }
 
 ClapTrap::~ClapTrap( void )
 {
-    std::cout << "ClapTrap destroyed !" << std::endl;
+    std::cout << RED << this->name << " ClapTrap destroyed 💀!" << RESET << std::endl;
 }
 
+// Methods ---------------------------------------------------------------------
 
-void ClapTrap::attack(const std::string& target)
+void	ClapTrap::attack(const std::string& target)
 {
-    if (this->hitPoints <= 0 || this->energyPoints <= 0)
+	if (this->hitPoints == 0 || this->energyPoints == 0)
     {
-        std::cout << "ClapTrap " << name << "Cant do anything no energy or hitpoints!" << std::endl;
-        return;
-    }
-    std::cout << "ClapTrap " << name << " attacks " << target << " causing " << attackDamage << " points of damage!" << std::endl;
+		std::cout << BLUE << this->name << " tried to attack " << target
+				<< (this->hitPoints == 0 ? " but is dead!" : " but is out of energy!") << RESET << std::endl;
+		return ;
+	}
+	this->energyPoints--;
+	if (this->energyPoints <= 0)
+		this->energyPoints = 0;
+	std::cout << MAGENTA << this->name << " attacks "  << target
+			<< ", causing " << this->attackDamage << " points of damage!" << RESET << std::endl;
 }
 
-void ClapTrap::takeDamage(unsigned int amount) {
-    std::cout << "ClapTrap " << name << " takes " << amount << " points of damage!" << std::endl;
-}
 
-void ClapTrap::beRepaired(unsigned int amount)
+void	ClapTrap::takeDamage(unsigned int amount)
 {
-    if (this->hitPoints <= 0 || this->energyPoints <= 0)
+	int		from = this->hitPoints;
+	if (from == 0)
     {
-        std::cout << "ClapTrap " << name << "Cant do anything no energy or hitpoints!" << std::endl;
-        return;
-    }
-    this->hitPoints += amount;
-    std::cout << "ClapTrap " << name << " is repaired for " << amount << " points!" << std::endl;
+		std::cout << RED << this->name << " is already dead!" << RESET << std::endl;
+		return ;
+	}
+	this->hitPoints -= amount;
+	if (this->hitPoints <= 0)
+    {
+		this->hitPoints = 0;
+		std::cout << RED << this->name <<  " died due to " << \
+			amount << " damage! (" << from << " >> " << this->hitPoints << ")" << RESET << std::endl;
+		return ;
+	}
+	std::cout << RED << this->name << " took " << \
+		amount << " damage! (" << from << " >> " << this->hitPoints << ")" << RESET << std::endl;
+}
+
+void	ClapTrap::beRepaired(unsigned int amount)
+{
+	int	from = this->hitPoints;
+
+	if (from == 0 || this->energyPoints == 0)
+    {
+		std::cout  << RED << this->name <<  " can't be repaired. "
+				<< (from == 0 ? "Entity is dead." : "No energy points left!") << RESET << std::endl;
+		return ;
+	}
+	this->hitPoints += amount;
+	this->energyPoints--;
+	if (this->energyPoints <= 0)
+		this->energyPoints = 0;
+	std::cout << MAGENTA << this->name << " is being repaired... ("
+			<< from << " >> " << this->hitPoints << ")" << RESET << std::endl;
+}
+
+void ClapTrap::init_claptrap()
+{
+    const int boxWidth = 50;
+
+    std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
+    std::cout << border << std::endl;
+    std::cout << BLUE << "Name: " << RESET;
+    std::cout << std::left << std::setw(boxWidth - 8) << name << std::endl;
+    std::cout << GREEN << "Hit Points: " << RESET;
+    std::cout << std::left << std::setw(boxWidth - 20) << std::to_string(hitPoints) + " 🛡️" << std::endl;
+    std::cout << MAGENTA << "Energy Points: " << RESET;
+    std::cout << std::left << std::setw(boxWidth - 22) << std::to_string(energyPoints) + " 🔋"  << std::endl;
+    std::cout << RED << "Attack Damage: " << RESET;
+    std::cout << std::left << std::setw(boxWidth - 22) << std::to_string(attackDamage) + " 🗡️" << std::endl;
+    std::cout << GREEN << this->name << " ClapTrap created 👶!" << RESET << std::endl;
+    std::cout << border << std::endl << std::endl;
 }
