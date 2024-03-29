@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 09:37:50 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/28 12:26:31 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/03/29 16:43:26 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 /** 
 * use of different operator overloads
+* and use arithmetic operations between fixed point numbers
 */
 
 int main( void ) {
