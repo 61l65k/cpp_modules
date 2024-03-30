@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:49:15 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/29 18:58:15 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/03/30 15:26:53 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,13 @@ void	ClapTrap::beRepaired(unsigned int amount)
 void ClapTrap::init_claptrap()
 {
     const int boxWidth = 50;
+    const std::string title = "ClapTrap";
+    int titleStartPos = (boxWidth - title.length()) / 2;
 
-    std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
-    std::cout << border << std::endl;
+    std::string topborder = "+" + std::string(titleStartPos - 1, '-')\
+    + title + std::string(boxWidth - titleStartPos - title.length() - 1, '-') + "+" ;
+    std::string bottomborder = "+" + std::string(boxWidth - 2, '-') + "+" ;
+    std::cout << topborder << std::endl;
     std::cout << BLUE << "Name: " << RESET;
     std::cout << std::left << std::setw(boxWidth - 8) << name << std::endl;
     std::cout << GREEN << "Hit Points: " << RESET;
@@ -134,5 +138,5 @@ void ClapTrap::init_claptrap()
     std::cout << RED << "Attack Damage: " << RESET;
     std::cout << std::left << std::setw(boxWidth - 22) << std::to_string(attackDamage) + " 🗡️" << std::endl;
     std::cout << GREEN << this->name << " ClapTrap created 👶!" << RESET << std::endl;
-    std::cout << border << std::endl << std::endl;
+    std::cout << bottomborder << std::endl << std::endl;
 }
