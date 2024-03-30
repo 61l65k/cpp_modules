@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:49:15 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/30 16:42:36 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/03/30 17:03:48 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,29 @@ ClapTrap::ClapTrap() : ClapTrap("nameless", true)
 {
 }
 
-ClapTrap::ClapTrap(const std::string& name, bool initNow)
+ClapTrap::ClapTrap(const std::string& name, bool init_clap)
 : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-    if (initNow)
+    if (init_clap)
         init_trap("ClapTrap");
 }
 
-ClapTrap::ClapTrap(const ClapTrap &clapTrap)
+ClapTrap::ClapTrap(const ClapTrap &clapTrap, bool init_clap)
     : name(clapTrap.name),
       hitPoints(clapTrap.hitPoints),
       energyPoints(clapTrap.energyPoints),
       attackDamage(clapTrap.attackDamage)
 {
-    const int boxWidth = 50;
+    if (init_clap)
+    {
+        const int boxWidth = 50;
 
-    std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
-    std::cout << border << std::endl;
-    std::cout << GREEN << "{ ClapTrap } copy constructed from :" << RESET << BLUE << clapTrap.name << RESET << std::endl;
-    std::cout << GREEN << this->name << " ClapTrap created 👶!" << RESET << std::endl << std::endl;
-    std::cout << border << std::endl << std::endl;
+        std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
+        std::cout << border << std::endl;
+        std::cout << GREEN << "{ ClapTrap } copy constructed from :" << RESET << BLUE << clapTrap.name << RESET << std::endl;
+        std::cout << GREEN << this->name << " ClapTrap created 👶!" << RESET << std::endl << std::endl;
+        std::cout << border << std::endl << std::endl;
+    }
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &clapTrap)

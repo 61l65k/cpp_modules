@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:12:48 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/30 16:45:30 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/03/30 17:04:38 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main()
     ScavTrap sepi = tepi;
 
     ClapTrap clapper("Clapper", true);
-    ClapTrap clapper2(clapper);
+    ClapTrap clapper2(clapper, true);
 
     tepi.attack("Jepa");
     jepa.takeDamage(20);

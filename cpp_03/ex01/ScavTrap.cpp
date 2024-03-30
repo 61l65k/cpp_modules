@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 15:30:56 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/30 16:42:28 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/03/30 17:03:37 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name, false)
 }
 
 
-ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src)
+ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src, false)
 {
     const int boxWidth = 50;
 
