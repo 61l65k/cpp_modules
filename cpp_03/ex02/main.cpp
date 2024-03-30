@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:12:48 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/30 17:10:00 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/03/30 17:21:09 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@
 /* ************************************************************************** */
 
 
+#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
 int main()
 {
-    ScavTrap tepi("Tepi");
-    ScavTrap jepa("Jepa");
-    ScavTrap sepi = tepi;
-    ScavTrap lepi;
-
+    FragTrap fragger("Fragger");
+    ScavTrap scaver("Scaver");
     ClapTrap clapper("Clapper", true);
-    ClapTrap clapper2(clapper, true);
 
-    tepi.attack("Jepa");
-    jepa.takeDamage(20);
-    jepa.beRepaired(10);
-    tepi.guardGate();
-    sepi.guardGate();
+    scaver.guardGate();
+    clapper.attack("Clapper");
+    clapper.takeDamage(0);
+
+    fragger.highFivesGuys();
+    fragger.attack("Scaver");
+    scaver.takeDamage(30);
+
     return 0;
 }
