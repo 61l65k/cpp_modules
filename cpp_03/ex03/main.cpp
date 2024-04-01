@@ -6,12 +6,11 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:12:48 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/01 20:01:20 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/02 02:29:34 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 /**
  -Wshadow flag is used to detect shadowed variables. example,
@@ -32,17 +31,16 @@
 
 int main()
 {
-    FragTrap fragger("Fragger");
-    ScavTrap scaver("Scaver");
-    ClapTrap clapper("Clapper", true);
+    DiamondTrap diamondTrap("DiamondTrap");
+    DiamondTrap diamondTrap2("DiamondTrap2");   
+    DiamondTrap diamondTrap3(diamondTrap2);
 
-    scaver.guardGate();
-    clapper.attack("Clapper");
-    clapper.takeDamage(0);
+    diamondTrap.guardGate();
+    diamondTrap.attack("target");
+    diamondTrap.takeDamage(10);
+    diamondTrap.whoAmI();
 
-    fragger.highFivesGuys();
-    fragger.attack("Scaver");
-    scaver.takeDamage(30);
-
+    diamondTrap2.whoAmI();
+    diamondTrap2.guardGate();
     return 0;
 }

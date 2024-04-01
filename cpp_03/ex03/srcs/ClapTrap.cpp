@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:49:15 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/30 17:37:06 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/02 02:29:58 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(const std::string& name, bool initNow)
 : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
     if (initNow)
-        init_trap("ClapTrap");
+        init_trap("ClapTrap", this->name);
 }
 
 ClapTrap::ClapTrap(const ClapTrap &clapTrap, bool init_clap)
@@ -32,21 +32,11 @@ ClapTrap::ClapTrap(const ClapTrap &clapTrap, bool init_clap)
       attackDamage(clapTrap.attackDamage)
 {
     if (init_clap)
-    {
-        const int boxWidth = 50;
-
-        std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
-        std::cout << border << std::endl;
-        std::cout << GREEN << "{ ClapTrap } copy constructed from :" << RESET << BLUE << clapTrap.name << RESET << std::endl;
-        std::cout << GREEN << this->name << " ClapTrap created 👶!" << RESET << std::endl << std::endl;
-        std::cout << border << std::endl << std::endl;
-    }
+        copy_constructor_msg("ClapTrap", clapTrap.name);
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &src)
 {
-    const int boxWidth = 50;
-
     if (this != &src)
     {
         this->name = src.name;
@@ -54,17 +44,13 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &src)
         this->energyPoints = src.energyPoints;
         this->attackDamage = src.attackDamage;
     }
-    std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
-    std::cout << border << std::endl;
-    std::cout << GREEN << "{ ClapTrap } created with copy assigment! from :" << RESET << BLUE << src.name << RESET << std::endl << std::endl;
-    std::cout << GREEN << this->name << " ClapTrap created 👶!" << RESET << std::endl << std::endl;
-    std::cout << border << std::endl << std::endl;
+    copy_assigment_msg("ClapTrap", src.name);
     return *this;
 }
 
 ClapTrap::~ClapTrap( void )
 {
-    std::cout << RED << this->name << "{ ClapTrap } destructed 💀!" << RESET << std::endl;
+    destruct_trap(this->name, "ClapTrap");
 }
 
 // Methods ---------------------------------------------------------------------
@@ -83,7 +69,6 @@ void	ClapTrap::attack(const std::string& target)
 	std::cout << MAGENTA << this->name << " attacks "  << target
 			<< ", causing " << this->attackDamage << " points of damage!" << RESET << std::endl;
 }
-
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
@@ -123,7 +108,9 @@ void	ClapTrap::beRepaired(unsigned int amount)
 			<< from << " >> " << this->hitPoints << ")" << RESET << std::endl;
 }
 
-void ClapTrap::init_trap(const std::string& title) 
+// shared trap methods --------------------------------------------------------
+
+void ClapTrap::init_trap(const std::string& title, const std::string &real_name) 
 {
     const int boxWidth = 50;
     int titleStartPos = (boxWidth - title.length()) / 2;
@@ -133,13 +120,40 @@ void ClapTrap::init_trap(const std::string& title)
     std::string bottomborder = "+" + std::string(boxWidth - 2, '-') + "+" ;
     std::cout << topborder << std::endl;
     std::cout << BLUE << "Name: " << RESET;
-    std::cout << std::left << std::setw(boxWidth - 8) << name << std::endl;
+    std::cout << std::left << std::setw(boxWidth - 8) << real_name << std::endl;
     std::cout << GREEN << "Hit Points: " << RESET;
     std::cout << std::left << std::setw(boxWidth - 20) << std::to_string(hitPoints) + " 🛡️" << std::endl;
     std::cout << MAGENTA << "Energy Points: " << RESET;
     std::cout << std::left << std::setw(boxWidth - 22) << std::to_string(energyPoints) + " 🔋"  << std::endl;
     std::cout << RED << "Attack Damage: " << RESET;
     std::cout << std::left << std::setw(boxWidth - 22) << std::to_string(attackDamage) + " 🗡️" << std::endl;
-    std::cout << GREEN << this->name << " ClapTrap created 👶!" << RESET << std::endl;
+    std::cout << GREEN << real_name << " ClapTrap created 👶!" << RESET << std::endl;
     std::cout << bottomborder << std::endl << std::endl;
+}
+
+void ClapTrap::destruct_trap(const std::string &real_name, const std::string& class_name)
+{
+    std::cout << RED << real_name << "{ " << class_name  << " } destructed 💀!" << RESET << std::endl;
+} 
+
+void ClapTrap::copy_assigment_msg(const std::string &class_name, const std::string &real_name)
+{
+    const int boxWidth = 50;
+
+    std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
+    std::cout << border << std::endl;
+    std::cout << GREEN << "{ " << class_name << " } created with copy assigment! from :" << RESET << BLUE << real_name << RESET << std::endl << std::endl;
+    std::cout << GREEN << real_name << " " << class_name << " created 👶!" << RESET << std::endl << std::endl;
+    std::cout << border << std::endl << std::endl;
+}
+
+void ClapTrap::copy_constructor_msg(const std::string &class_name, const std::string &real_name)
+{
+    const int boxWidth = 50;
+
+    std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
+    std::cout << border << std::endl;
+    std::cout << GREEN << "{ " << class_name << " } copy constructed from :" << RESET << BLUE << real_name << RESET << std::endl;
+    std::cout << GREEN << real_name << class_name << " created 👶!" << RESET << std::endl << std::endl;
+    std::cout << border << std::endl << std::endl;
 }
