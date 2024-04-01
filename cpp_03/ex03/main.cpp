@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:12:48 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/01 18:39:32 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/01 20:01:20 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
         int x = 0; --shadow
     }
 }
+
+! Make the Frag & Scav classes inherit from virtual ClapTrap class. 
+! This way, the DiamondTrap class will have only one instance of the ClapTrap class.
+
 */
 
 
