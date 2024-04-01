@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:05:47 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/01 17:09:53 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/01 18:20:13 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static bool isOnSameSide(const Point& edgeStart, const Point& edgeEnd, const Poi
     Fixed cross1 = x1 * y2 - x2 * y1;
     Fixed cross2 = x1 * y3 - x3 * y1;
    
+    //std::cout << "cross1: " << cross1 <<   "   cross2: " <<cross2 << std::endl;
     if (cross1 == 0 || cross2 == 0) return false;
 
     return (cross1 * cross2 > 0);

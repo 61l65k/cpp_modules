@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 09:37:50 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/01 17:24:03 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/01 18:31:29 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 // Arithmetic operators, use floats cos not so prone to overflow
 // if we pass fixedpoint to the fixed as argument it will most likely overflow
 // cos it will double shift the value
+
+if we would do the arithmetics with fixedpoint values we could 
+get more precise results with more decimal points
 
             Vertexc
                (5,5)   C
@@ -77,6 +80,19 @@ int main(void)
     else
         std::cout << "Outside point: Outside the triangle" << std::endl;
 
+    // Test: Point almost outside the triangle with 0.009 margin
+    const Point almostPoint(5, 4.991);
+    if (bsp(vertexa, vertexb, vertexc, almostPoint))
+        std::cout << "Almost point: Inside the triangle" << std::endl;
+    else
+        std::cout << "Almost point: Outside the triangle" << std::endl;
+
+    // Test: Point almost out with 0.01 margin
+    const Point almostPoint2(9.95, 0.04);
+    if (bsp(vertexa, vertexb, vertexc, almostPoint2))
+        std::cout << "Almost2 point: Inside the triangle" << std::endl;
+    else
+        std::cout << "Almost2 point: Outside the triangle" << std::endl;
     // Test: Point on the edge of the triangle
     const Point edgePoint(3, 5);
     if (bsp(vertexa, vertexb, vertexc, edgePoint))
