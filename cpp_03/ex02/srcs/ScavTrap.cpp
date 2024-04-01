@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 15:30:56 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/30 17:16:15 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/02 02:35:32 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap() : ClapTrap("nameless", false)
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
-    init_trap("ScavTrap");
+    init_trap("ScavTrap", this->name);
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name, false)
@@ -27,30 +27,22 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name, false)
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
-    init_trap("ScavTrap");
+    init_trap("ScavTrap", this->name);
 }
 
 
 ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src, false)
 {
-    const int boxWidth = 50;
-
-    std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
-    std::cout << border << std::endl;
-    std::cout << GREEN << "{ ScavTrap } copy constructed from :" << RESET << BLUE << src.name << RESET << std::endl;
-    std::cout << GREEN << this->name << " ScavTrap created 👶!" << RESET << std::endl << std::endl;
-    std::cout << border << std::endl << std::endl;
+    copy_constructor_msg("ScavTrap", src.name);
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << RED << this->name << "{ ScavTrap } destructed 💀!" << RESET << std::endl;
+	destruct_trap(this->name, "ScavTrap");
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 {
-    const int boxWidth = 50;
-
     if (this != &src)
     {
         this->name = src.name;
@@ -58,11 +50,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &src)
         this->energyPoints = src.energyPoints;
         this->attackDamage = src.attackDamage;
     }
-    std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
-    std::cout << border << std::endl;
-    std::cout << GREEN << "{ ScavTrap } created with copy assigment! from :" << RESET << BLUE << src.name << RESET << std::endl << std::endl;
-    std::cout << GREEN << this->name << " ScavTrap created 👶!" << RESET << std::endl << std::endl;
-    std::cout << border << std::endl << std::endl;
+    copy_assigment_msg("ScavTrap", name);
     return *this;
 }
 

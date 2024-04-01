@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 16:51:47 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/30 17:17:38 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/02 02:29:37 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,28 @@ FragTrap::FragTrap() : ClapTrap("nameless", false)
 	this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 30;
-	init_trap("FragTrap");
+	init_trap("FragTrap", this->name);
 }
 FragTrap::FragTrap(std::string name) : ClapTrap(name, false)
 {
 	this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 30;
-	init_trap("FragTrap");
+	init_trap("FragTrap", this->name);
 }
 
 FragTrap::FragTrap(const FragTrap &src) : ClapTrap(src, false)
 {
-	const int boxWidth = 50;
-
-    std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
-    std::cout << border << std::endl;
-    std::cout << GREEN << "{ FlagTrap } copy constructed from :" << RESET << BLUE << src.name << RESET << std::endl;
-    std::cout << GREEN << this->name << " FlagTrap created 👶!" << RESET << std::endl << std::endl;
-    std::cout << border << std::endl << std::endl;
+    copy_constructor_msg("FragTrap", src.name);
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << RED << this->name << "{ FragTrap } destructed 💀!" << RESET << std::endl;
+	destruct_trap(this->name, "FragTrap");
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &src)
 {
-	const int boxWidth = 50;
-
     if (this != &src)
     {
         this->name = src.name;
@@ -56,13 +48,11 @@ FragTrap &FragTrap::operator=(const FragTrap &src)
         this->energyPoints = src.energyPoints;
         this->attackDamage = src.attackDamage;
     }
-    std::string border = "+" + std::string(boxWidth - 2, '-') + "+" ;
-    std::cout << border << std::endl;
-    std::cout << GREEN << "{ FragTrap } created with copy assigment! from :" << RESET << BLUE << src.name << RESET << std::endl << std::endl;
-    std::cout << GREEN << this->name << " FragTrap  created 👶!" << RESET << std::endl << std::endl;
-    std::cout << border << std::endl << std::endl;
+    copy_assigment_msg("FragTrap", src.name);
     return *this;
 }
+
+// Methods -----------------------------------------------------------
 
 void    FragTrap::highFivesGuys(void)
 {

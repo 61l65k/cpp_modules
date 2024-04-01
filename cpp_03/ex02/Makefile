@@ -1,13 +1,13 @@
-SRC =	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC =	main.cpp srcs/ClapTrap.cpp srcs/ScavTrap.cpp srcs/FragTrap.cpp
 OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-NAME = ClapFight
+CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic -I includes -I headers
+NAME = fragtrapper
 UNAME := $(shell uname)
 
 ifeq ($(UNAME), Linux)
-	CPPFLAGS = -Wall -Wextra -Werror
+	CPPFLAGS = -Wall -Wextra -Werror -I headers
 endif
 
 all: $(NAME)

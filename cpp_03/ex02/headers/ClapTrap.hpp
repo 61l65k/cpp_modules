@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:49:22 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/30 17:06:20 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/02 02:29:13 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ClapTrap {
 
 public:
     ClapTrap();
-    ClapTrap(const std::string& name, bool initNow);
+    ClapTrap(const std::string& name, bool init_clap);
     ClapTrap(const ClapTrap &clapTrap, bool init_clap);
     ClapTrap & operator=(ClapTrap const & rhs);
     ~ClapTrap();
@@ -44,7 +44,10 @@ protected:
     unsigned int energyPoints;
     unsigned int attackDamage;
     bool         shouldInit;
-    void init_trap(const std::string& name);
+    void init_trap(const std::string& title, const std::string &real_name);
+    void destruct_trap(const std::string &real_name, const std::string& class_name);
+    void copy_assigment_msg(const std::string& class_name, const std::string& name);
+    void copy_constructor_msg(const std::string &class_name, const std::string &name);
 };
 
 #endif
