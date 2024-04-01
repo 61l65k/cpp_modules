@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 09:37:50 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/28 14:29:19 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:01:33 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int main(void)
         std::cout << "Outside point: Outside the triangle" << std::endl;
 
     // Test: Point on the edge of the triangle
-    const Point edgePoint(5, 0);
+    const Point edgePoint(3, 5);
     if (bsp(vertexa, vertexb, vertexc, edgePoint))
         std::cout << "Edge point: Inside the triangle" << std::endl;
     else

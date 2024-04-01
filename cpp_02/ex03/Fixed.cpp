@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 09:38:00 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/29 16:54:36 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:10:13 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,13 @@ bool    Fixed::operator==(const Fixed &rhs) const { return (_fixedPointValue == 
 
 bool    Fixed::operator!=(const Fixed &rhs) const { return (_fixedPointValue != rhs.getRawBits()); }
 
-Fixed Fixed::operator+(const Fixed &rhs) const { return Fixed(this->_fixedPointValue + rhs.getRawBits()); }
+Fixed   Fixed::operator+(const Fixed &rhs) const { return (Fixed(toFloat() + rhs.toFloat())); }
 
-Fixed Fixed::operator-(const Fixed &rhs) const { return Fixed(this->_fixedPointValue - rhs.getRawBits()); }
+Fixed   Fixed::operator-(const Fixed &rhs) const { return (Fixed(toFloat() - rhs.toFloat())); }
 
-Fixed Fixed::operator*(const Fixed &rhs) const 
-{
-    long long temp = static_cast<long long>(this->_fixedPointValue) * rhs.getRawBits();
-    return Fixed(static_cast<int>(temp >> _fractionalBits));
-}
+Fixed   Fixed::operator*(const Fixed &rhs) const { return (Fixed(toFloat() * rhs.toFloat())); }
 
-Fixed Fixed::operator/(const Fixed &rhs) const
-{
-    long long temp = static_cast<long long>(this->_fixedPointValue) << _fractionalBits;
-    return Fixed(static_cast<int>(temp / rhs.getRawBits()));
-}
+Fixed   Fixed::operator/(const Fixed &rhs) const { return (Fixed(toFloat() / rhs.toFloat())); }
 
 Fixed&  Fixed::operator++(void)
 {
