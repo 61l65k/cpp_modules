@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 09:38:00 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/01 17:19:19 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:23:58 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ std::ostream&   operator<<(std::ostream &o, Fixed const &rhs)
     o << rhs.toFloat();
     return o;
 }
-
-// Arithmetic operators, use floats cos not so prone to overflow
 
 bool    Fixed::operator>(const Fixed &rhs) const { return (_fixedPointValue > rhs.getRawBits()); }
 

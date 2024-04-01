@@ -6,13 +6,16 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 09:37:50 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/01 17:19:29 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:24:03 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
 /*** Main triangle 
+// Arithmetic operators, use floats cos not so prone to overflow
+// if we pass fixedpoint to the fixed as argument it will most likely overflow
+// cos it will double shift the value
 
             Vertexc
                (5,5)   C
