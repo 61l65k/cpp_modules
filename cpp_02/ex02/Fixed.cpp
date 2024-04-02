@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 09:38:00 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/01 17:11:32 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:02:42 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Fixed::Fixed() : _fixedPointValue(0) {}
 
-Fixed::Fixed(const int n) : _fixedPointValue(n << _fractionalBits){}
+Fixed::Fixed(const int n) : _fixedPointValue(n * (1 << _fractionalBits)) {}
 
 Fixed::Fixed(const float n) : _fixedPointValue(roundf(n * (1 << _fractionalBits))){}
 

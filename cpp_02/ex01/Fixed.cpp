@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 09:38:00 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/28 11:46:26 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:03:05 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Fixed::Fixed() : _fixedPointValue(0)
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const int n) : _fixedPointValue(n << _fractionalBits)
+Fixed::Fixed(const int n) : _fixedPointValue(n * (1 << _fractionalBits))
 {
     std::cout << "Int constructor called" << std::endl;
 }
