@@ -81,12 +81,13 @@ int main(void)
         std::cout << "Outside point: Outside the triangle" << std::endl;
 
     // Test: Point almost outside the triangle with 0.009 margin
-    const Point almostPoint(5, 4.991);
+    std::cout << std::endl << std::endl;
+    const Point almostPoint(5, 4.9980000);
     if (bsp(vertexa, vertexb, vertexc, almostPoint))
         std::cout << "Almost point: Inside the triangle" << std::endl;
     else
         std::cout << "Almost point: Outside the triangle" << std::endl;
-
+    std::cout << std::endl << std::endl;
     // Test: Point almost out with 0.01 margin
     const Point almostPoint2(9.95, 0.04);
     if (bsp(vertexa, vertexb, vertexc, almostPoint2))
