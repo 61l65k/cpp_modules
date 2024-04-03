@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:49:15 by apyykone          #+#    #+#             */
-/*   Updated: 2024/03/30 17:03:48 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/03 17:18:04 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 // Constructors ---------------------------------------------------------------
 
-ClapTrap::ClapTrap() : ClapTrap("nameless", true)
+ClapTrap::ClapTrap() : name("nameless"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
+    init_trap("ClapTrap");
 }
 
 ClapTrap::ClapTrap(const std::string& name, bool init_clap)
@@ -87,18 +88,20 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	int		from = this->hitPoints;
+	int           from = this->hitPoints;
+    const int     damagetaken = this->hitPoints - amount;
+
 	if (from == 0)
     {
 		std::cout << RED << this->name << " is already dead!" << RESET << std::endl;
 		return ;
 	}
 	this->hitPoints -= amount;
-	if (this->hitPoints <= 0)
+	if (damagetaken <= 0)
     {
 		this->hitPoints = 0;
 		std::cout << RED << this->name <<  " died due to " << \
-			amount << " damage! (" << from << " >> " << this->hitPoints << ")" << RESET << std::endl;
+			amount << " damage! (" << from << " >> " << damagetaken << ")" << RESET << std::endl;
 		return ;
 	}
 	std::cout << RED << this->name << " took " << \

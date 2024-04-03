@@ -44,7 +44,7 @@ protected:
     unsigned int energyPoints;
     unsigned int attackDamage;
     bool         shouldInit;
-    void init_trap(const std::string& name);
+    void init_trap(const std::string& title);
 };
 
 #endif

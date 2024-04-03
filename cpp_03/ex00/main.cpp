@@ -39,7 +39,8 @@ int	main(void)
     sepi.attack("Tepi");
     sepi2.attack("Tepi");
     sepi3.attack("Tepi");
-    tepi.takeDamage(0);
+    tepi.takeDamage(11);
+    tepi.beRepaired(10);
     tepi.takeDamage(0);
     tepi.takeDamage(0);
 
