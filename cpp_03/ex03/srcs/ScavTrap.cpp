@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 15:30:56 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/02 02:35:32 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/12 01:46:43 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Constructors ---------------------------------------------------------------
 
-ScavTrap::ScavTrap() : ClapTrap("nameless", false)
+ScavTrap::ScavTrap() : ClapTrap("nameless", true)
 {
     hitPoints = 100;
     energyPoints = 50;
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap() : ClapTrap("nameless", false)
     init_trap("ScavTrap", this->name);
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name, false)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, true)
 {
     hitPoints = 100;
     energyPoints = 50;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 18:41:11 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/02 02:29:24 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/12 01:48:46 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Consructors ---------------------------------------------------------------
 
-DiamondTrap::DiamondTrap() : ClapTrap("nameless", false), ScavTrap("nameless"), FragTrap("nameless")
+DiamondTrap::DiamondTrap() : ClapTrap("nameless", true), ScavTrap("nameless"), FragTrap("nameless")
 {
 	this->name = "nameless";
 	this->hitPoints = FragTrap::hitPoints;
@@ -23,7 +23,7 @@ DiamondTrap::DiamondTrap() : ClapTrap("nameless", false), ScavTrap("nameless"), 
 	init_trap("DiamondTrap", this->name);
 };
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name, false), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name, true), ScavTrap(name), FragTrap(name)
 {
 	ClapTrap::name = name + "_clap_name";
     this->name = name;

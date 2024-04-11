@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:12:48 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/02 02:29:34 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/12 01:50:14 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,7 @@
 int main()
 {
     DiamondTrap diamondTrap("DiamondTrap");
-    DiamondTrap diamondTrap2("DiamondTrap2");   
-    DiamondTrap diamondTrap3(diamondTrap2);
+    DiamondTrap diamondTrap2("DiamondTrap2");
 
-    diamondTrap.guardGate();
-    diamondTrap.attack("target");
-    diamondTrap.takeDamage(10);
-    diamondTrap.whoAmI();
-
-    diamondTrap2.whoAmI();
-    diamondTrap2.guardGate();
     return 0;
 }

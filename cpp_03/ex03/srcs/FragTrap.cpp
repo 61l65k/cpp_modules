@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 16:51:47 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/02 02:29:37 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/12 01:46:31 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 // Constructors ---------------------------------------------------------------
 
-FragTrap::FragTrap() : ClapTrap("nameless", false)
+FragTrap::FragTrap() : ClapTrap("nameless", true)
 {
 	this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 30;
 	init_trap("FragTrap", this->name);
 }
-FragTrap::FragTrap(std::string name) : ClapTrap(name, false)
+FragTrap::FragTrap(std::string name) : ClapTrap(name, true)
 {
 	this->hitPoints = 100;
     this->energyPoints = 100;
