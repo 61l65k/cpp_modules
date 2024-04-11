@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:49:15 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/02 02:29:58 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/12 01:38:28 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 ClapTrap::ClapTrap( void ) : name("nameless"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-    init_claptrap();
+    init_trap("ClapTrap", this->name);
 }
 
 ClapTrap::ClapTrap(const std::string& name, bool initNow)
