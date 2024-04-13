@@ -41,14 +41,11 @@ int	main(void)
     sepi3.attack("Tepi");
     tepi.takeDamage(11);
     tepi.beRepaired(10);
-    tepi.takeDamage(0);
-    tepi.takeDamage(0);
 
     kepi.beRepaired(100);
     kepi.beRepaired(100);
     kepi.beRepaired(100);
     nameless.attack("Tepi");
-    tepi.takeDamage(0);
 
 	return (0);
 }

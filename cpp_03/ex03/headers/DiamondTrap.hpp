@@ -31,7 +31,7 @@ public :
     DiamondTrap & operator =(const DiamondTrap & src);
 
     void whoAmI(void); 
-    using FragTrap::attack;
+    using ScavTrap::attack;
 };
 
 #endif

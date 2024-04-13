@@ -2,7 +2,7 @@ SRC =	main.cpp srcs/ClapTrap.cpp srcs/ScavTrap.cpp srcs/FragTrap.cpp srcs/Diamon
 OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
-CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic -I includes -I headers
+CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic -I headers
 NAME = dclapper
 UNAME := $(shell uname)
 

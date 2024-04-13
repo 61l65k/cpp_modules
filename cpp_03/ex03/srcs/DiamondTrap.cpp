@@ -21,7 +21,7 @@ DiamondTrap::DiamondTrap() : ClapTrap("nameless", false), ScavTrap("nameless", f
 	this->energyPoints = 50;
 	this->attackDamage = FragTrap::attackDamage;
 	init_trap("DiamondTrap", this->name);
-};
+}
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name, false), ScavTrap(name, false), FragTrap(name, false)
 {
@@ -31,7 +31,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name, false), ScavTrap(nam
 	this->energyPoints = 50;
 	this->attackDamage = FragTrap::attackDamage;
 	init_trap("DiamondTrap", this->name);
-};
+}
 
 DiamondTrap::~DiamondTrap()
 {
