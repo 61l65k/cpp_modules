@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:49:15 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/13 16:14:06 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/13 16:17:57 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,25 @@ ClapTrap::ClapTrap( void ) : name("nameless"), hitPoints(10), energyPoints(10), 
     init_trap("ClapTrap", this->name);
 }
 
-ClapTrap::ClapTrap(const std::string& name, bool initNow)
+ClapTrap::ClapTrap(const std::string& name, bool not_derived)
 : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-    if (initNow)
+    if (not_derived)
         init_trap("ClapTrap", this->name);
+    else
+          std::cout << GREEN << this->name << " ClapTrap created as a derived constructor 👶!" << RESET << std::endl << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &clapTrap, bool init_clap)
+ClapTrap::ClapTrap(const ClapTrap &clapTrap, bool not_derived)
     : name(clapTrap.name),
       hitPoints(clapTrap.hitPoints),
       energyPoints(clapTrap.energyPoints),
       attackDamage(clapTrap.attackDamage)
 {
-    if (init_clap)
+    if (not_derived)
         copy_constructor_msg("ClapTrap", clapTrap.name);
+    else 
+          std::cout << GREEN << this->name << " ClapTrap created as a derived constructor 👶!" << RESET << std::endl << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &src)
