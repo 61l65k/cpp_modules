@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:49:22 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/02 02:29:13 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/13 16:26:19 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class ClapTrap {
 
 public:
     ClapTrap();
-    ClapTrap(const std::string& name, bool init_clap);
-    ClapTrap(const ClapTrap &clapTrap, bool init_clap);
+    ClapTrap(const std::string& name, bool not_derived);
+    ClapTrap(const ClapTrap &clapTrap, bool not_derived);
     ClapTrap & operator=(ClapTrap const & rhs);
     ~ClapTrap();
     

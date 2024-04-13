@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 15:30:56 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/12 01:46:43 by alex             ###   ########.fr       */
+/*   Updated: 2024/04/13 16:30:20 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,26 @@ ScavTrap::ScavTrap() : ClapTrap("nameless", true)
     init_trap("ScavTrap", this->name);
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name, true)
+ScavTrap::ScavTrap(std::string name, bool not_derived) : ClapTrap(name, true)
 {
-    hitPoints = 100;
-    energyPoints = 50;
-    attackDamage = 20;
-    init_trap("ScavTrap", this->name);
+    if (not_derived)
+    {
+        hitPoints = 100;
+        energyPoints = 50;
+        attackDamage = 20;
+        init_trap("ScavTrap", this->name);
+    }
+    else
+        std::cout << GREEN << this->name << " ScavTrap created as a derived constructor 👶!" << RESET << std::endl << std::endl;
 }
 
 
-ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src, false)
+ScavTrap::ScavTrap(const ScavTrap &src, bool not_derived) : ClapTrap(src, false)
 {
-    copy_constructor_msg("ScavTrap", src.name);
+    if (not_derived)
+        copy_constructor_msg("ScavTrap", src.name);
+    else
+        std::cout << GREEN << this->name << " ScavTrap created as a derived constructor 👶!" << RESET << std::endl << std::endl;
 }
 
 ScavTrap::~ScavTrap()

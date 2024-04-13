@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 18:41:11 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/12 01:48:46 by alex             ###   ########.fr       */
+/*   Updated: 2024/04/13 16:40:53 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Consructors ---------------------------------------------------------------
 
-DiamondTrap::DiamondTrap() : ClapTrap("nameless", true), ScavTrap("nameless"), FragTrap("nameless")
+DiamondTrap::DiamondTrap() : ClapTrap("nameless", false), ScavTrap("nameless", false), FragTrap("nameless", false)
 {
 	this->name = "nameless";
 	this->hitPoints = FragTrap::hitPoints;
@@ -23,7 +23,7 @@ DiamondTrap::DiamondTrap() : ClapTrap("nameless", true), ScavTrap("nameless"), F
 	init_trap("DiamondTrap", this->name);
 };
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name, true), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name, false), ScavTrap(name, false), FragTrap(name, false)
 {
 	ClapTrap::name = name + "_clap_name";
     this->name = name;
@@ -38,7 +38,7 @@ DiamondTrap::~DiamondTrap()
 	destruct_trap(this->name, "DiamondTrap");
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &src) : ClapTrap(src.name, false), ScavTrap(src.name), FragTrap(src.name)
+DiamondTrap::DiamondTrap(const DiamondTrap &src) : ClapTrap(src.name, false), ScavTrap(src.name, false), FragTrap(src.name, false)
 {
 	*this = src;
 }

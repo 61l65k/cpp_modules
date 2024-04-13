@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 16:51:47 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/12 01:46:31 by alex             ###   ########.fr       */
+/*   Updated: 2024/04/13 16:35:27 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,35 @@ FragTrap::FragTrap() : ClapTrap("nameless", true)
     this->attackDamage = 30;
 	init_trap("FragTrap", this->name);
 }
-FragTrap::FragTrap(std::string name) : ClapTrap(name, true)
+FragTrap::FragTrap(std::string name, bool not_derived) : ClapTrap(name, true)
 {
-	this->hitPoints = 100;
-    this->energyPoints = 100;
-    this->attackDamage = 30;
-	init_trap("FragTrap", this->name);
+    if (not_derived)
+    { 
+        this->hitPoints = 100;
+        this->energyPoints = 100;
+        this->attackDamage = 30;
+        init_trap("FragTrap", this->name);
+    }
+    else
+    {
+        this->hitPoints = 100;
+        this->energyPoints = 100;
+        this->attackDamage = 30;
+        std::cout << GREEN << this->name << " FragTrap created as a derived constructor 👶!" << RESET << std::endl << std::endl;
+    }
 }
 
-FragTrap::FragTrap(const FragTrap &src) : ClapTrap(src, false)
+FragTrap::FragTrap(const FragTrap &src, bool not_derived) : ClapTrap(src, false)
 {
-    copy_constructor_msg("FragTrap", src.name);
+    if (not_derived)
+      copy_constructor_msg("FragTrap", src.name);
+    else
+    {
+        this->hitPoints = 100;
+        this->energyPoints = 100;
+        this->attackDamage = 30;
+        std::cout << GREEN << this->name << " FragTrap created as a derived constructor 👶!" << RESET << std::endl << std::endl;
+    }
 }
 
 FragTrap::~FragTrap()

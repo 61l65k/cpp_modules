@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:12:48 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/12 01:50:14 by alex             ###   ########.fr       */
+/*   Updated: 2024/04/13 16:24:33 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@
         int x = 0; --shadow
     }
 }
+       ClapTrap    virtual  abstract class
+      /        \
+ ScavTrap   FragTrap
+      \        /
+       DiamondTrap
+
+    ClapTrap  ClapTrap    non virtual   non abstract class
+      /           \
+ ScavTrap        FragTrap
+      \          /
+       DiamondTrap
 
 ! Make the Frag & Scav classes inherit from virtual ClapTrap class. 
 ! This way, the DiamondTrap class will have only one instance of the ClapTrap class.
@@ -33,6 +44,11 @@ int main()
 {
     DiamondTrap diamondTrap("DiamondTrap");
     DiamondTrap diamondTrap2("DiamondTrap2");
+
+
+    diamondTrap.attack("DiamondTrap2");
+    diamondTrap2.takeDamage(10);
+    diamondTrap.highFivesGuys();
 
     return 0;
 }
