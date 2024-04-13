@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:12:48 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/13 16:24:33 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/13 16:43:34 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ int main()
     diamondTrap.attack("DiamondTrap2");
     diamondTrap2.takeDamage(10);
     diamondTrap.highFivesGuys();
+
+    diamondTrap.whoAmI();
+    diamondTrap2.whoAmI();
 
     return 0;
 }
