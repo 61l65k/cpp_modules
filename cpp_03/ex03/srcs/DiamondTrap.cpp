@@ -16,6 +16,7 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap("nameless", false), ScavTrap("nameless", false), FragTrap("nameless", false)
 {
+	ClapTrap::name = name + "_clap_name";
 	this->name = "nameless";
 	this->hitPoints = FragTrap::hitPoints;
 	this->energyPoints = 50;
@@ -61,6 +62,11 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src)
 
 void DiamondTrap::whoAmI(void)
 {
+	if (this->hitPoints <= 0)
+	{
+		std::cout << "DiamondTrap " << this->name << " is dead. Cant display names !" << std::endl;
+		return ;
+	}
 	std::cout << "DiamondTrap name: " << this->name << std::endl;
 	std::cout << "ClapTrap name: " << ClapTrap::name << std::endl;
 }

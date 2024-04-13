@@ -29,14 +29,14 @@ int main()
 {
     ScavTrap tepi("Tepi");
     ScavTrap jepa("Jepa");
-    ScavTrap sepi = tepi;
-    
+    ClapTrap clappi("Clappi", false);
 
+    clappi.attack("Jepa");
+    jepa.takeDamage(20);
     tepi.attack("Jepa");
     jepa.takeDamage(20);
     jepa.beRepaired(10);
     tepi.guardGate();
-    sepi.guardGate();
     return 0;
 }
 

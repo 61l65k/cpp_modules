@@ -74,8 +74,11 @@ FragTrap &FragTrap::operator=(const FragTrap &src)
 
 void    FragTrap::highFivesGuys(void)
 {
-	if(this->hitPoints > 0)
-    	std::cout << YELLOW << this->name << " high fives guys! 🙌" << RESET << std::endl;
-	else
-		std::cout << YELLOW << this->name << " is dead! 💀 Cant highfive!" << RESET << std::endl;
+	if(this->hitPoints > 0 && this->energyPoints > 0)
+    {
+        std::cout << YELLOW << this->name << " high fives guys! 🙌" << RESET << std::endl;
+        this->energyPoints--;
+    }
+    else
+		std::cout << YELLOW << this->name << " is dead or no energy ! Cant highfive! 🙌" << RESET << std::endl;
 }

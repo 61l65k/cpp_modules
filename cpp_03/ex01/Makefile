@@ -3,7 +3,7 @@ OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-NAME = ClapFight
+NAME = ScavClapFight
 UNAME := $(shell uname)
 
 ifeq ($(UNAME), Linux)

@@ -72,7 +72,7 @@ void	ClapTrap::attack(const std::string& target)
 	this->energyPoints--;
 	if (this->energyPoints <= 0)
 		this->energyPoints = 0;
-	std::cout << MAGENTA << this->name << " attacks "  << target
+	std::cout << MAGENTA "ClapTrap attack method" << this->name << " attacks "  << target
 			<< ", causing " << this->attackDamage << " points of damage!" << RESET << std::endl;
 }
 

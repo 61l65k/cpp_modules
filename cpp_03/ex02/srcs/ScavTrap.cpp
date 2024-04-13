@@ -58,8 +58,26 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 
 void    ScavTrap::guardGate( void )
 {
-    if (hitPoints > 0)
+    if (this->hitPoints > 0 && this->energyPoints > 0)
+    {
         std::cout << YELLOW << this->name << " has entered in Gate keeper mode 🚪" << RESET << std::endl;
+        this->energyPoints--;
+    }
     else
-        std::cout << RED << this->name << " is dead 💀 Cant Gate keep!" << RESET << std::endl;
+        std::cout << YELLOW << this->name << " is out of energy or dead! Cant Gate keep! 🚪" << RESET << std::endl;
+}
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (this->hitPoints == 0 || this->energyPoints == 0)
+    {
+		std::cout << BLUE << this->name << " tried to attack " << target
+				<< (this->hitPoints == 0 ? " but is dead!" : " but is out of energy!") << RESET << std::endl;
+		return ;
+	}
+	this->energyPoints--;
+	if (this->energyPoints <= 0)
+		this->energyPoints = 0;
+	std::cout << MAGENTA << "Scav Attack method " << this->name << " attacks "  << target
+			<< ", causing " << this->attackDamage << " points of damage!" << RESET << std::endl;
 }
