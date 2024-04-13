@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 17:49:15 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/03 17:18:04 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/13 16:12:42 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,22 @@ ClapTrap::ClapTrap() : name("nameless"), hitPoints(10), energyPoints(10), attack
     init_trap("ClapTrap");
 }
 
-ClapTrap::ClapTrap(const std::string& name, bool init_clap)
+ClapTrap::ClapTrap(const std::string& name, bool not_derived)
 : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-    if (init_clap)
+    if (not_derived)
         init_trap("ClapTrap");
+    else
+        std::cout << GREEN << this->name << " ClapTrap created as a derived constructor 👶!" << RESET << std::endl << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &clapTrap, bool init_clap)
+ClapTrap::ClapTrap(const ClapTrap &clapTrap, bool not_derived)
     : name(clapTrap.name),
       hitPoints(clapTrap.hitPoints),
       energyPoints(clapTrap.energyPoints),
       attackDamage(clapTrap.attackDamage)
 {
-    if (init_clap)
+    if (not_derived)
     {
         const int boxWidth = 50;
 
@@ -42,6 +44,9 @@ ClapTrap::ClapTrap(const ClapTrap &clapTrap, bool init_clap)
         std::cout << GREEN << this->name << " ClapTrap created 👶!" << RESET << std::endl << std::endl;
         std::cout << border << std::endl << std::endl;
     }
+    else
+        std::cout << GREEN << this->name << " ClapTrap created as a derived constructor 👶!" << RESET << std::endl << std::endl ;
+
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &clapTrap)
