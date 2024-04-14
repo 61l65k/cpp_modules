@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 16:51:47 by apyykone          #+#    #+#             */
-/*   Updated: 2024/04/02 02:29:37 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/14 13:17:33 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ FragTrap &FragTrap::operator=(const FragTrap &src)
 
 void    FragTrap::highFivesGuys(void)
 {
-	if(this->hitPoints > 0 && this->energyPoints > 0)
+    if(this->hitPoints > 0 && this->energyPoints > 0)
     {
         std::cout << YELLOW << this->name << " high fives guys! 🙌" << RESET << std::endl;
         this->energyPoints--;
     }
     else
-		std::cout << YELLOW << this->name << " is dead or no energy ! Cant highfive! 🙌" << RESET << std::endl;
+        std::cout << YELLOW << this->name << " is dead or no energy ! Cant highfive! 🙌" << RESET << std::endl;
 }
