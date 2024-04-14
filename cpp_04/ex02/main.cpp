@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 14:54:21 by alex              #+#    #+#             */
-/*   Updated: 2024/04/07 16:35:36 by alex             ###   ########.fr       */
+/*   Updated: 2024/04/14 13:41:54 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 * - Only thing that changed we made the AAnimal class abstract
 * by adding a pure virtual function makeSound.
 * - So it needs a derived class to implement it.
+
+* So the AAnimal class is now an abstract class so called interface.
 */
 
 int	main()
