@@ -9,10 +9,10 @@ class MateriaSource: public IMateriaSource
 private:
 	AMateria	*_materias[MAX_MATERIA];
 public:
-	MateriaSource(); // Default constructor
-	MateriaSource(const MateriaSource &src); // Copy constructor
-	~MateriaSource(); // Destructor
-	MateriaSource	&operator=(const MateriaSource &src); // Assignment operator
+	MateriaSource();
+	MateriaSource(const MateriaSource &src);
+	~MateriaSource();
+	MateriaSource	&operator=(const MateriaSource &src);
 
 	void		learnMateria(AMateria*);
 	AMateria*	createMateria(std::string const & type);

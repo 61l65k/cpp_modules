@@ -7,6 +7,17 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
+/*
+    Demonstrates polymorphism and interfaces in an RPG game scenario.
+    - Interfaces: IMateriaSource, ICharacter
+    - Classes: MateriaSource, AMateria, Ice, Cure, Character
+    - Actions: Learn and use materia
+
+	- Interfaces are used to define the methods that must-
+	be implemented by the classes that inherit from them.
+
+*/
+
 int	main()
 {
 	IMateriaSource* src = new MateriaSource();
@@ -15,11 +26,8 @@ int	main()
 
 	ICharacter* me = new Character("me");
 
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	me->equip(src->createMateria("ice"));
+	me->equip(src->createMateria("cure"));
 
 	ICharacter* bob = new Character("bob");
 
