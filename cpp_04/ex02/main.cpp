@@ -17,14 +17,9 @@
 #define MAX_ANIMALS 2
 
 /**
-* - Only thing that changed we made the AAnimal class abstract
-* by adding a pure virtual function makeSound.
-* - So it needs a derived class to implement it.
-
-* So the AAnimal class is now an abstract class so called interface.
-
-* Virtual destructor ensures that the destructors are called from derived classes to base class.
-
+* Only thing that changed we made the Animal class to be abstract class
+* So it needs to be inherited by another class
+* So its a interface class (")>
 */
 
 int	main()
@@ -47,11 +42,8 @@ int	main()
 	}
 
 	for (int i = 0; i < MAX_ANIMALS; i++)
-	{
 		delete animals[i];
-	}
 
-	// Pointer tests (Polymorphic)
 	std::cout << "\033[1;34mPointer tests (Polymorphic)\033[0m" << std::endl;
 	const AAnimal* j = new Dog();
 	const AAnimal* i = new Cat();
@@ -61,7 +53,6 @@ int	main()
 	i->makeSound();
 	j->makeSound();
 
-	// Reference tests (Polymorphic)
 	std::cout << "\033[1;34mReference tests (Polymorphic)\033[0m" << std::endl;
 	const AAnimal& l = *j;
 	const AAnimal& m = *i;
