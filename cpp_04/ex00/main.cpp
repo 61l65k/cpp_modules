@@ -27,22 +27,32 @@
 int main()
 {
     const Animal* meta = new Animal();
-    const Animal* doggy = new Dog();
-    const Animal* catty = new Cat();
-    
-    std::cout << doggy->getType() << " " << std::endl;
-    std::cout << catty->getType() << " " << std::endl;
-    
-    catty->makeSound(); 
-    doggy->makeSound(); 
-    meta->makeSound(); 
-    
+    Animal* catty = new Cat();
+    Animal* doggy = new Dog();
+
+    // Creating new block of memory
+    const Animal *dog_deep = new Dog(*static_cast<Dog*>(doggy)); // deep copy
+    const Animal *cat_deep = new Cat(*static_cast<Cat*>(catty)); // deep copy
+
+    // pointing to existing memory
+    const Animal *dog_shallow = doggy; // shallow copy
+    const Animal *cat_shallow = catty; // shallow copy
+
+    dog_deep->makeSound();
+    cat_deep->makeSound();
+    dog_shallow->makeSound();
+    cat_shallow->makeSound();
+
+
+    // Wrong Animals The base class doesnt have virtual makesound()
     const WrongAnimal* wrongMeta = new WrongAnimal();
     const WrongAnimal* wrongCat = new WrongCat();
 
     wrongCat->makeSound(); 
     wrongMeta->makeSound(); 
 
+    delete dog_deep;
+    delete cat_deep;
     delete catty;
     delete doggy;
     delete meta;
