@@ -17,8 +17,15 @@
 #define MAX_ANIMALS 2
 
 /**
-* Create an array of MAX_ANIMALS animals, alternating between Dog and Cat.
-* Create deep copy of the first animal in the array. which is a Dog.
+
+* 1. Create a array of Animal pointers and fill it with Dogs and Cats that inherit from Animal.
+* 2. Only thing that changed is the virtual key word before the destructor of the Animal class.-
+* So if the Class has a virtual destructor, the derived class destructor will be called.
+
+
+** Virtual destructor used in polymorphism when the class is dynamically allocated adn the class is not on stack-
+*  So it knows to call the derived class destructorfirst if there is.
+* Its good to make the base class destructor virtual if the class is meant to be inherited. Always !!
 */
 
 int	main()
