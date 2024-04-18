@@ -24,18 +24,18 @@ int	main()
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 
-	ICharacter* me = new Character("me");
+	ICharacter* keke = new Character("me");
 
-	me->equip(src->createMateria("ice"));
-	me->equip(src->createMateria("cure"));
+	keke->equip(src->createMateria("ice"));
+	keke->equip(src->createMateria("cure"));
 
 	ICharacter* bob = new Character("bob");
 
-	me->use(0, *bob);
-	me->use(1, *bob);
+	keke->use(0, *bob);
+	keke->use(1, *bob);
 
 	delete bob;
-	delete me;
+	delete keke;
 	delete src;
 
 	return 0;

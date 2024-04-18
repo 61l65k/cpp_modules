@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 14:54:21 by alex              #+#    #+#             */
-/*   Updated: 2024/04/14 13:41:54 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/16 15:03:04 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 * - So it needs a derived class to implement it.
 
 * So the AAnimal class is now an abstract class so called interface.
+
+* Virtual destructor ensures that the destructors are called from derived classes to base class.
+
 */
 
 int	main()
@@ -55,7 +58,7 @@ int	main()
 
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
+	i->makeSound();
 	j->makeSound();
 
 	// Reference tests (Polymorphic)

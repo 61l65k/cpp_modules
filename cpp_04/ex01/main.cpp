@@ -6,7 +6,7 @@
 /*   By: apyykone <apyykone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 14:54:21 by alex              #+#    #+#             */
-/*   Updated: 2024/04/14 13:39:20 by apyykone         ###   ########.fr       */
+/*   Updated: 2024/04/16 14:47:24 by apyykone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ int	main()
 		else
 			animals[i] = new Cat();
 	}
+
+	for (int i = 0; i < MAX_ANIMALS; i++)
+		animals[i]->makeSound();
 
 	if (MAX_ANIMALS > 0)
 	{
