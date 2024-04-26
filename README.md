@@ -1,6 +1,5 @@
 # Introduction to C++
 
-_ CPP
 + Repo has all cpp modules
 
 _C++ is a general-purpose programming language created by `Bjarne Stroustrup` as an extension of the C programming language, often referred to as "C with Classes". The goal of learning modules in C++ is to introduce you to Object-Oriented Programming (OOP). This serves as the starting point of your C++ journey. While many languages support OOP, we chose C++ due to its close relationship with C, a language you're familiar with. To keep things simple, your code will comply with the C++98 standard. It's worth noting that modern C++ has evolved significantly in many aspects._
