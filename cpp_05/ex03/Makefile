@@ -1,10 +1,10 @@
-SRC =	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
+SRC =	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic -I includes -I headers
-NAME = zoo
+NAME = keepsigning
 UNAME := $(shell uname)
 
 ifeq ($(UNAME), Linux)
@@ -18,6 +18,7 @@ $(NAME): $(OBJS)
 
 clean:
 	$(RM) $(OBJS)
+	$(RM) *_shrubbery
 
 fclean: clean
 	$(RM) $(NAME)
