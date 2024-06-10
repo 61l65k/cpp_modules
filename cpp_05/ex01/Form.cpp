@@ -1,7 +1,5 @@
 #include "Form.hpp"
 
-#include "Form.hpp"
-
 Form::Form(): _name("default"), _signed(false), _gradeToSign(MIN_GRADE), _gradeToExecute(MAX_GRADE)
 {
 }
