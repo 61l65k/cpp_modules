@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(MIN_GRADE) { }
 
@@ -65,7 +65,7 @@ void Bureaucrat::checkGrade(int grade) const
     }
 }
 
-void Bureaucrat::signForm(Form& f)
+void Bureaucrat::signForm(AForm& f)
 {
 	f.beSigned(*this);
     if (f.getSigned() == false)
@@ -73,4 +73,17 @@ void Bureaucrat::signForm(Form& f)
         f.getName()<<" cos grade not enough :(" << std::endl;
     else
         std::cout << this->_name << " signs '" << f.getName() << "'" << std::endl;
+}
+
+void    Bureaucrat::executeForm(AForm const &form){
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executes " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << this->getName() << " cannot execute " \
+        << form.getName() << " cos: " << e.what() << std::endl;
+	}
 }

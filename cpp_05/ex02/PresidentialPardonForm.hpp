@@ -1,15 +1,19 @@
 #pragma once
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class PresidentialPardonForm : public AForm
 {
+    private:
+        std::string _target;
     public:
         PresidentialPardonForm();
         PresidentialPardonForm(const std::string &target);
         PresidentialPardonForm(const PresidentialPardonForm &copy);
         PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
         ~PresidentialPardonForm();
-        void execute(const Bureaucrat &executor) const;
-        enum {gradeToSign = 25, gradeToExecute = 5};
+        void exec_action(const Bureaucrat &executioner) const;
+        void changeTarget(std::string const & target);
+        std::string const & getTarget() const;
+        enum grades{e_gradeToSign = 25, e_gradeToExecute = 5};
 };
