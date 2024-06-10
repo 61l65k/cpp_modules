@@ -1,4 +1,4 @@
-SRC =	main.cpp Bureaucrat.cpp AForm.cpp
+SRC =	main.cpp Bureaucrat.cpp Form.cpp
 OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
