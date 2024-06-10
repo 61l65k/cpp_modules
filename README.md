@@ -1,5 +1,6 @@
 # Introduction to C++
 
+##
 ## Overview
 This course is designed to introduce you to the C++ programming language. Throughout this course, you'll learn about C++ syntax, new keywords, classes, and their relationship with structs, as well as the implementation of methods.
 
