@@ -24,7 +24,7 @@ void processForms(Bureaucrat &bureaucrat, AForm *forms[], int numForms)
             }
             catch (std::exception &e)
             {
-                std::cout << RED << e.what() << RESET << std::endl;
+                std::cerr << RED << e.what() << RESET << std::endl;
             }
             delete forms[i];
         }
@@ -34,7 +34,7 @@ void processForms(Bureaucrat &bureaucrat, AForm *forms[], int numForms)
 int main()
 {
     Intern someRandomIntern;
-    AForm *forms[4];
+    AForm *forms[4] = {0};
 
     createForms(someRandomIntern, forms);
 
