@@ -2,7 +2,7 @@ SRC =	main.cpp Bureaucrat.cpp Form.cpp
 OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
-CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic -I includes -I headers
+CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic
 NAME = signem
 UNAME := $(shell uname)
 

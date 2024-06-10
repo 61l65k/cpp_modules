@@ -31,8 +31,6 @@ class AForm
 
         virtual void        exec_action(const Bureaucrat &executioner) const = 0;
 
-        using GradeTooHighException = Bureaucrat::GradeTooHighException;
-        using GradeTooLowException = Bureaucrat::GradeTooLowException;
         class FormNotSignedException : public std::exception
         {
             public:

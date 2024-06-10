@@ -25,9 +25,6 @@ class Form
         bool                getSigned() const;
         void                beSigned(const Bureaucrat &bureaucrat);
         void                signForm(const Bureaucrat &bureaucrat);
-
-        using GradeTooHighException = Bureaucrat::GradeTooHighException;
-        using GradeTooLowException = Bureaucrat::GradeTooLowException;
 };
 
 std::ostream& operator<<(std::ostream& out, const Form& form);
