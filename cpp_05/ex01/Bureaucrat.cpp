@@ -68,7 +68,9 @@ void Bureaucrat::checkGrade(int grade) const
 void Bureaucrat::signForm(Form& f)
 {
 	f.beSigned(*this);
-	if (f.getSigned() == false)
+    if (f.getSigned() == false)
 		std::cout << this->_name << " couldnt sign '" << \
         f.getName()<<" cos grade not enough :(" << std::endl;
+    else
+        std::cout << this->_name << " signs '" << f.getName() << "'" << std::endl;
 }
