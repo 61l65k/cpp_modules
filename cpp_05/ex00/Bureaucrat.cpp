@@ -53,7 +53,7 @@ void Bureaucrat::decrementGrade()
     _grade++;
 }
 
-void Bureaucrat::checkGrade(int grade) const
+void Bureaucrat::checkGrade(unsigned int grade) const
 {
     if (grade < MAX_GRADE)
     {
