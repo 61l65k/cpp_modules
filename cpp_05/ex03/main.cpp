@@ -14,7 +14,7 @@ void processForms(Bureaucrat &bureaucrat, AForm *forms[], int numForms)
 
     for (int i = 0; i < numForms; ++i)
     {
-        if (forms[i] != nullptr)
+        if (forms[i] != NULL)
         {
             try
             {

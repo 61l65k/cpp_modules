@@ -36,5 +36,5 @@ AForm* Intern::makeForm(const std::string &nameForm, const std::string &target)
     }
     
     std::cerr << RED << "[ Error! Form's name is incorrect.]" << RESET << std::endl;
-    return nullptr;
+    return NULL;
 }

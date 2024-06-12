@@ -6,10 +6,6 @@ CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic
 NAME = bureman
 UNAME := $(shell uname)
 
-ifeq ($(UNAME), Linux)
-	CPPFLAGS = -Wall -Wextra -Werror -I headers
-endif
-
 all: $(NAME)
 
 $(NAME): $(OBJS)
