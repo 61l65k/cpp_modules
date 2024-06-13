@@ -1,4 +1,6 @@
 #include "Bureaucrat.hpp"
+#include <cfloat>
+#include <climits>
 
 int main()
 {

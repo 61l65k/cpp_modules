@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(MIN_GRADE) { }
 
-Bureaucrat::Bureaucrat(const std::string &name, unsigned int grade) : _name(name)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
 {
     checkGrade(grade);
     _grade = grade;
@@ -53,7 +53,7 @@ void Bureaucrat::decrementGrade()
     _grade++;
 }
 
-void Bureaucrat::checkGrade(unsigned int grade) const
+void Bureaucrat::checkGrade(int grade) const
 {
     if (grade < MAX_GRADE)
     {

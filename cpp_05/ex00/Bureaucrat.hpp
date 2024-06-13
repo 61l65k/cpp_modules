@@ -13,10 +13,10 @@ class Bureaucrat
     private:
         const std::string   _name;
         int                 _grade;
-        void                checkGrade(unsigned int grade) const;
+        void                checkGrade(int grade) const;
     public:
         Bureaucrat();
-        Bureaucrat(const std::string &name, unsigned int grade);
+        Bureaucrat(const std::string &name, int grade);
         ~Bureaucrat();
         Bureaucrat(const Bureaucrat &copy);
         Bureaucrat &operator=(const Bureaucrat &copy);
