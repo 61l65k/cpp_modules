@@ -1,9 +1,9 @@
-SRC =	main.cpp
+SRC =	main.cpp ScalarConverter.cpp
 OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic
-NAME = bureman
+NAME = convertmachine
 UNAME := $(shell uname)
 
 all: $(NAME)
