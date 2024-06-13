@@ -11,6 +11,7 @@
 
 #define RED "\033[31m"
 #define DEFAULT "\033[0m"
+#define ERR_DBL "Invalid input for double conversion, most likely overflow or underflow or a string."
 
 class ScalarConverter
 {

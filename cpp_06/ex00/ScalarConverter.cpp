@@ -10,7 +10,7 @@ static double stringToDouble(const std::string &input)
     double doubleValue;
     stream >> doubleValue;
     if (stream.fail() || !stream.eof())
-        throw std::runtime_error("Invalid input for double conversion");
+        throw std::runtime_error(ERR_DBL);
 
     return doubleValue;
 }
@@ -86,18 +86,29 @@ static bool handleSingleChar(const std::string &input)
 
 void ScalarConverter::convert(const std::string &input)
 {
-    if (handlePseudoLiterals(input))
-        return;
+    try
+    {
+        if (handlePseudoLiterals(input))
+            return;
 
-    if (handleSingleChar(input))
-        return;
+        if (handleSingleChar(input))
+            return;
 
-    double d = stringToDouble(input);
-    if (d > std::numeric_limits<double>::max() || d < -std::numeric_limits<double>::max())
-        throw std::runtime_error("Number out of range for double conversion");
+        double d = stringToDouble(input);
+        if (d > std::numeric_limits<double>::max() || d < -std::numeric_limits<double>::max())
+            throw std::runtime_error("Number out of range for double conversion");
 
-    convertChar(d);
-    convertInt(d);
-    convertFloat(d);
-    convertDouble(d);
+        convertChar(d);
+        convertInt(d);
+        convertFloat(d);
+        convertDouble(d);
+    }
+    catch (const std::runtime_error &e)
+    {
+        throw e;
+    }
+    catch (const std::exception &e)
+    {
+        throw e;
+    }
 }
