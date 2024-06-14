@@ -1,4 +1,4 @@
-SRC =	main.cpp
+SRC =	A.cpp B.cpp C.cpp Base.cpp main.cpp
 OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
