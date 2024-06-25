@@ -1,4 +1,4 @@
-SRC =	main.cpp
+SRC =	test.cpp
 OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
