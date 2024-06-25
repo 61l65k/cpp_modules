@@ -52,11 +52,5 @@ int main()
     iter(strArray, strLen, printString);
     std::cout << std::endl;
 
-    iter(strArray, strLen, increment<std::string>); // Not meaningful but to test the template
-
-    std::cout << "Modified string array: ";
-    iter(strArray, strLen, printString);
-    std::cout << std::endl;
-
     return 0;
 }

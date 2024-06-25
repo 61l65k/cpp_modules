@@ -1,8 +1,10 @@
 #pragma once
 
-template<class TypeArr, class TypeLen>
-void iter(TypeArr *arr, TypeLen len, void function(TypeArr))
+#include <iostream>
+
+template <typename T, typename I, typename Func>
+void iter(T *tab, I len, Func ft)
 {
-    for (TypeLen iteration = 0; iteration < len; iteration++)
-        function(arr[iteration]);
+    for (I i = 0; i < len; i++)
+        ft(tab[i]);
 }
