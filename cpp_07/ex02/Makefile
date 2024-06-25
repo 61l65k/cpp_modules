@@ -3,7 +3,7 @@ OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic
-NAME = serialize
+NAME = any_array
 UNAME := $(shell uname)
 
 all: $(NAME)
