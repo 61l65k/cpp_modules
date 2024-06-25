@@ -3,6 +3,7 @@
 int main()
 {
     try {
+        // Test default constructor
         Array<int> array1;
         std::cout << "array1 size: " << array1.size() << std::endl;
 
