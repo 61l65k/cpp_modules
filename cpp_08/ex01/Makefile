@@ -1,8 +1,8 @@
-SRC =	main.cpp
+SRC =	main.cpp Span.cpp
 OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
-CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 NAME = any_array
 UNAME := $(shell uname)
 
