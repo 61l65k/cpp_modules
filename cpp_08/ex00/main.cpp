@@ -1,5 +1,6 @@
 #include"easyfind.hpp"
 #include<vector>
+
 int main()
 {
     std::vector<int>vec;
@@ -11,6 +12,22 @@ int main()
     try
     {
         easyfind(vec,89);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+       try
+    {
+        easyfind(vec,10);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+       try
+    {
+        easyfind(vec,1);
     }
     catch(const std::exception& e)
     {

@@ -3,7 +3,8 @@
 #include <vector>
 #include <algorithm>
 
-int main() {
+int main()
+{
     std::deque<int> myVector;
     
     // Add some elements to the vector
