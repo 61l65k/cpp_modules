@@ -11,7 +11,7 @@ int main()
     vec.push_back(17);
     try
     {
-        easyfind(vec,89);
+        easyfind(vec, 89);
     }
     catch(const std::exception& e)
     {
@@ -19,7 +19,7 @@ int main()
     }
        try
     {
-        easyfind(vec,10);
+        easyfind(vec, 10);
     }
     catch(const std::exception& e)
     {
@@ -27,7 +27,7 @@ int main()
     }
        try
     {
-        easyfind(vec,1);
+        easyfind(vec, 1);
     }
     catch(const std::exception& e)
     {
