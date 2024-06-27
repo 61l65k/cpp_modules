@@ -26,13 +26,13 @@ int main()
     {
         Span mySpan(10);
         int arr[] = {1, 3, 4, 10};
-        std::vector<int> list(arr, arr + sizeof(arr) / sizeof(int));
+        std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
         mySpan.addNumber(6);
         mySpan.addNumber(52);
         mySpan.addNumber(17);
         mySpan.addNumber(9);
         mySpan.addNumber(11);
-        mySpan.insertRange(list.begin(), list.end());
+        mySpan.insertRange(vec.begin(), vec.end());
 
         std::cout << "Shortest Span: " << mySpan.shortestSpan() << std::endl;
         std::cout << "Longest Span: " << mySpan.longestSpan() << std::endl;
@@ -64,8 +64,8 @@ int main()
     {
         Span sp(5);
         int arr[] = {1, 2, 3, 4, 5, 6};
-        std::vector<int> list(arr, arr + sizeof(arr) / sizeof(int));
-        sp.insertRange(list.begin(), list.end());
+        std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
+        sp.insertRange(vec.begin(), vec.end());
     }
     catch (const std::exception& e)
     {
