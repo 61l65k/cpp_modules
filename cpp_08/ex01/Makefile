@@ -3,7 +3,7 @@ OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-NAME = any_array
+NAME = spanner
 UNAME := $(shell uname)
 
 all: $(NAME)
