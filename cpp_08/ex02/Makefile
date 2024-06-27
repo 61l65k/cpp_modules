@@ -1,9 +1,9 @@
-SRC =	test.cpp
+SRC =	main.cpp
 OBJS = $(SRC:.cpp=.o)
 RM = rm -f
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic
-NAME = any_array
+NAME = mutanto
 UNAME := $(shell uname)
 
 all: $(NAME)
