@@ -1,6 +1,6 @@
 #include "BitcoinExchange.hpp"
 
-/* ------------------------------- CONSTRUCTORS ------------------------------- */
+/*----------------- CLASS IMPLEMENTATION -----------------*/
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -19,10 +19,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &src)
     this->_dataBase = src._dataBase;
 }
 
-BitcoinExchange::~BitcoinExchange()
-{
-	_dataBase.clear();
-}
+BitcoinExchange::~BitcoinExchange() = default;
 
 BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs)
 {
