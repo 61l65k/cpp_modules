@@ -1,14 +1,9 @@
 #include "BitcoinExchange.hpp"
-#include <cstdlib>
-#include <exception>
-#include <fstream>
-#include <iostream>
 
 /* ------------------------------- CONSTRUCTORS ------------------------------- */
 
 BitcoinExchange::BitcoinExchange()
 {
-    badInput = "";
     try
     {
         this->csvToMap();
@@ -107,7 +102,7 @@ void BitcoinExchange::startExchange(std::string &path)
                     }
                     catch(std::exception &e)
                     {
-                        std::cout << e.what()  << this->badInput << std::endl; ;
+                        std::cout << e.what()  << std::endl; ;
                     }
                 }
             }

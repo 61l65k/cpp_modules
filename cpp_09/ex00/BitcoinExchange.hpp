@@ -4,12 +4,15 @@
 #include <exception>
 #include <map>
 #include <string>
+#include <cstdlib>
+#include <exception>
+#include <fstream>
+#include <iostream>
 
 class BitcoinExchange
 {
 private:
 	std::map<std::string , float> _dataBase;
-	std::string badInput;
 
 	void checkDate(std::string date);
    	void checkValue(std::string value);
