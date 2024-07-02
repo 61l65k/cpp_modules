@@ -23,7 +23,20 @@ RPN::~RPN() = default;
 
 /* ------------------------------- METHODS ------------------------------- */
 
-void RPN::parseInput(std::string &input)
+void RPN::runRPN(std::string &input)
+{
+    try
+    {
+        handleRPN(input);
+        printResult();
+    }
+    catch (std::exception &e)
+    {
+        throw;
+    }
+}
+
+void RPN::handleRPN(std::string &input)
 {
     int digitCount = 0;
 

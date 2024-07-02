@@ -53,11 +53,10 @@ int main(int argc, char **argv)
     if (argc == 2)
     {
         std::string arguments = argv[1];
-        RPN polish;
+        RPN rpn;
         try
         {
-            polish.parseInput(arguments);
-            polish.printResult();
+            rpn.runRPN(arguments);
         }
         catch (std::exception &e)
         {
