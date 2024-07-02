@@ -2,7 +2,7 @@ SRC =	main.cpp RPN.cpp
 OBJS = $(SRC:.cpp=.o)
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-NAME = fixy
+NAME = polish_postfixer
 
 all: $(NAME)
 
