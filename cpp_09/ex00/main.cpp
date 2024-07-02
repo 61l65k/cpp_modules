@@ -1,15 +1,26 @@
 #include "BitcoinExchange.hpp"
+#include <exception>
+#include <iostream>
 
-int main(int ac, char **av)
+
+int main(int argc, char **argv)
 {
-
-	if (ac != 2)
-	{
-		std::cout << "Error: could not open file" << std::endl;
-		return (1);
-	}
-
-	BitcoinExchange exchange;
-
-	exchange.run(av[1]);
+    (void)argc;
+    (void)argv;
+    if (argc != 2)
+    {
+        std::cerr << "invalid number of arguments" << std::endl;
+        return (1);
+    }
+    std::string arg = argv[1];
+   try
+   {
+       BitcoinExchange exchange;
+       exchange.startExchange(arg);
+   }
+   catch(std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+        return (1);
+    }
 }

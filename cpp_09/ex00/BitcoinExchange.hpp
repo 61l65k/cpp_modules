@@ -1,37 +1,52 @@
 #pragma once
 
-#include <iostream>
+
+#include <exception>
 #include <map>
-#include <fstream>
-#include <sstream>
-#include <stdlib.h>
-#include <algorithm>
+#include <string>
 
 class BitcoinExchange
 {
 private:
-	std::map<std::string, std::string>    _data;
+	std::map<std::string , float> _dataBase;
+	std::string badInput;
 
-	std::string  previousDate(const std::string& date);
-	std::string  nextDate(const std::string& date);
-	std::string  trim(const std::string& str);
+	void checkDate(std::string date);
+   	void checkValue(std::string value);
+   	void printFormatedLine(std::string date, float value);
+  	void csvToMap(void);
 
-	void    validateNumber(const std::string &str);
-	bool    fileExists(const std::string &filename);
-	bool    fileIsEmpty(const std::string &filename);
-	bool    validDate(const std::string &date);
-	bool    isLeapYear(int year);
-	bool    ft_all_of(const std::string &str, int (*isDigit)(int));
-
-	int     ft_stoi(const std::string &str);
-	double  ft_stod(const std::string &str);
-	std::string  ft_to_string(int value);
 
 public:
 	BitcoinExchange();
-	BitcoinExchange(const BitcoinExchange &copy);
-	BitcoinExchange &operator=(const BitcoinExchange &other);
+	BitcoinExchange(BitcoinExchange const &src);
 	~BitcoinExchange();
+	BitcoinExchange &operator=(BitcoinExchange const &rhs);
 
-	void run(const std::string &filename);
+	void startExchange(std::string &inputPath);
+
+	class InvalidDateException : public std::exception
+	{
+		virtual const char *what() const throw();
+	};
+	class InvalidFilePath : public std::exception
+	{
+		virtual const char *what() const throw();
+	};
+	class NegativeNumberException : public std::exception
+	{
+		virtual const char *what() const throw();
+	};
+	class toLargeException : public std::exception
+	{
+		virtual const char *what() const throw();
+	};
+	class BadInputException : public std::exception
+    {
+    private:
+        std::string message;
+    public:
+        BadInputException(const std::string &input);
+        virtual const char *what() const throw();
+    };
 };
