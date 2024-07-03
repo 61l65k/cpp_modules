@@ -57,10 +57,10 @@ void PmergeMe::sort(int argc)
     std::cout << "After: ";
     printContainer(_deq);
 
-    std::cout << "time to process a range of " << (argc - 1) << " with std::vector : ";
+    std::cout << "\nTime to sort a range of " << (argc - 1) << " with std::vector : ";
     std::cout << (static_cast<double>(endVec - beginVec) / CLOCKS_PER_SEC) * 1000 << " ms" << std::endl;
-    std::cout << "time to process a range of " << (argc - 1) << " with std::deque : ";
-    std::cout << (static_cast<double>(endDeq - beginDeq) / CLOCKS_PER_SEC) * 1000 << " ms" << std::endl;
+    std::cout << "Time to sort a range of " << (argc - 1) << " with std::deque : ";
+    std::cout << (static_cast<double>(endDeq - beginDeq) / CLOCKS_PER_SEC) * 1000 << " ms" << std::endl << std::endl;
 }
 
 template <typename Container>
