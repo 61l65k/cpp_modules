@@ -1,8 +1,8 @@
 SRC =	main.cpp PmergeMe.cpp
 OBJS = $(SRC:.cpp=.o)
 CXX = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-NAME = fixy
+CPPFLAGS = -Wall -Wextra -Werror -std=c++11 -pedantic
+NAME = pmerge
 
 all: $(NAME)
 

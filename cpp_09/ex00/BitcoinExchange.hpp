@@ -5,7 +5,6 @@
 #include <map>
 #include <string>
 #include <cstdlib>
-#include <exception>
 #include <fstream>
 #include <iostream>
 
