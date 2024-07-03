@@ -1,6 +1,4 @@
 #include "PmergeMe.hpp"
-#include <ctime>
-#include <mutex>
 
 int main(int argc, char **argv)
 {
@@ -8,7 +6,7 @@ int main(int argc, char **argv)
     PmergeMe FJ;
     if (argc <= 2)
     {
-        std::cout << "Error : usage ./" << std::endl;
+        std::cout << "Error : usage ./PmergeMe 3 2 1 ..." << std::endl;
         return (1);
     }
     while (i < argc)

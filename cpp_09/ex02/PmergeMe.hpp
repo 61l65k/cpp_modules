@@ -9,23 +9,22 @@
 class PmergeMe
 {
     private:
-        std::vector<unsigned int>   _vec;
-        std::deque<unsigned int>    _deq;
+        std::vector<int>   _vec;
+        std::deque<int>    _deq;
 
         template <typename Container>
         void addElement(Container& container, const std::string& input);
 
         template <typename Container>
-        void sortContainer(Container& container, unsigned int start, unsigned int end);
-
-        template <typename Container>
-        void insertContainer(Container& container, unsigned int start, unsigned int end);
-
-        template <typename Container>
-        void mergeContainer(Container& container, unsigned int start, unsigned int end);
-
-        template <typename Container>
         void printContainer(const Container& container);
+
+        void sortVectorContainer(std::vector<int>& container, unsigned int start, unsigned int end);
+        void insertVectorContainer(std::vector<int>& container, unsigned int start, unsigned int end);
+        void mergeVectorContainer(std::vector<int>& container, unsigned int start, unsigned int end);
+
+        void sortDequeContainer(std::deque<int>& container, unsigned int start, unsigned int end);
+        void insertDequeContainer(std::deque<int>& container, unsigned int start, unsigned int end);
+        void mergeDequeContainer(std::deque<int>& container, unsigned int start, unsigned int end);
 
         bool validateInput(const std::string &input);
 
@@ -38,7 +37,6 @@ class PmergeMe
         void sort(int argc);
         void addVec(const std::string &input);
         void addDeq(const std::string &input);
-
 
     class invalidInputException : public std::exception
     {

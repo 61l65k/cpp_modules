@@ -2,7 +2,7 @@ SRC =	main.cpp PmergeMe.cpp
 OBJS = $(SRC:.cpp=.o)
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++11 -pedantic
-NAME = pmerge
+NAME = PmergeMe
 
 all: $(NAME)
 
