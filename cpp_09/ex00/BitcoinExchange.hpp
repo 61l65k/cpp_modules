@@ -13,8 +13,8 @@ class BitcoinExchange
 private:
 	std::map<std::string , float> _dataBase;
 
-	void checkDate(std::string date);
-   	void checkValue(std::string value);
+	void validateDate(std::string date);
+   	void validateValue(std::string value);
    	void printFormatedLine(std::string date, float value);
   	void csvToMap(void);
 

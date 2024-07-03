@@ -53,7 +53,7 @@ void BitcoinExchange::csvToMap()
         else
 		{
 			date = line.substr(0, line.find(","));
-			value = std::atof(line.substr(line.find(",")+1 ,line.length()).c_str());
+			value = std::atof(line.substr(line.find(",") + 1 ,line.length()).c_str());
 			_dataBase.insert(std::make_pair(date, value));
 		}
     }
@@ -93,8 +93,8 @@ void BitcoinExchange::startExchange(std::string &path)
                     value = line.substr(line.find("|") + 2, line.length());
                     try
                     {
-                        BitcoinExchange::checkDate(date);
-                        BitcoinExchange::checkValue(value);
+                        BitcoinExchange::validateDate(date);
+                        BitcoinExchange::validateValue(value);
                         BitcoinExchange::printFormatedLine(date, std::atof(value.c_str()));
                     }
                     catch(std::exception &e)
@@ -108,7 +108,9 @@ void BitcoinExchange::startExchange(std::string &path)
     inFile.close();
 }
 
-void BitcoinExchange::checkDate(std::string date)
+bool isLeapYear(int year) { return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0); }
+
+void BitcoinExchange::validateDate(std::string date)
 {
     if (date.length() != 10 || date[4] != '-' || date[7] != '-')
         throw BadInputException(date);
@@ -124,10 +126,10 @@ void BitcoinExchange::checkDate(std::string date)
     if (year <= 0 || month <= 0 || month > 12 || day <= 0)
         throw BadInputException(date);
 
-    static const int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-    int maxDay = daysInMonth[month - 1];
+    static const int daysInEachMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    int maxDay = daysInEachMonth[month - 1];
 
-    if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)))
+    if (month == 2 && isLeapYear(year))
 	{
         maxDay = 29;
     }
@@ -135,7 +137,7 @@ void BitcoinExchange::checkDate(std::string date)
         throw BadInputException(date);
 }
 
-void BitcoinExchange::checkValue(std::string value)
+void BitcoinExchange::validateValue(std::string value)
 {
 	if (value.length() > 4)
 	{
