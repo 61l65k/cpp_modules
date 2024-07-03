@@ -1,5 +1,7 @@
 #include "PmergeMe.hpp"
 
+/*-------------------------------- CLASS IMPLEMENTATIONS --------------------------------*/
+
 PmergeMe::PmergeMe() = default;
 
 PmergeMe::PmergeMe(PmergeMe &src)
@@ -18,6 +20,8 @@ PmergeMe::~PmergeMe()
     _vec.clear();
     _deq.clear();
 }
+
+/*-------------------------------- METHODS --------------------------------*/
 
 void PmergeMe::addDeq(const std::string &input)
 {
