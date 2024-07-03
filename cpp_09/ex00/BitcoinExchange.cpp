@@ -139,10 +139,6 @@ void BitcoinExchange::validateDate(std::string date)
 
 void BitcoinExchange::validateValue(std::string value)
 {
-	if (value.length() > 4)
-	{
-	   throw toLargeException();
-	}
 	const float checkValue = std::atof(value.c_str());
 	if (checkValue > 1000.0)
     {
