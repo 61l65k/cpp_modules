@@ -10,7 +10,7 @@ BitcoinExchange::BitcoinExchange()
     }
     catch (std::exception &e)
     {
-        throw InvalidFilePath();
+        throw ;
     }
 }
 
