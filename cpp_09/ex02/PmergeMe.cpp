@@ -37,10 +37,16 @@ bool PmergeMe::validateInput(const std::string& input)
 {
     if (input.length() > 10 || input[0] == '-')
         return false;
+    
+    if (!std::all_of(input.begin(), input.end(), ::isdigit))
+        return false;
+    
     if (std::atoll(input.c_str()) > std::numeric_limits<int>::max())
         return false;
+    
     return true;
 }
+
 
 void PmergeMe::sort(int argc)
 {

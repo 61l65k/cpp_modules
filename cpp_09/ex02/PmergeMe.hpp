@@ -5,6 +5,7 @@
 #include <limits>
 #include <ctime>
 #include <deque>
+#include <algorithm>
 
 class PmergeMe
 {
