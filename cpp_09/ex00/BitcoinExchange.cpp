@@ -83,7 +83,7 @@ void BitcoinExchange::startExchange(std::string &path)
         {
             if (line.find("|") == line.npos || line.empty() || line.find("|") != 11)
             {
-                std::cout << "Error: invalid format" << std::endl;
+                std::cout << "Error: bad input => " << line << std::endl;
             }
             else
             {
@@ -99,7 +99,7 @@ void BitcoinExchange::startExchange(std::string &path)
                     }
                     catch(std::exception &e)
                     {
-                        std::cout << e.what()  << std::endl; ;
+                        std::cout << e.what()  << std::endl;
                     }
                 }
             }
@@ -107,8 +107,6 @@ void BitcoinExchange::startExchange(std::string &path)
     }
     inFile.close();
 }
-
-bool isLeapYear(int year) { return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0); }
 
 void BitcoinExchange::validateDate(std::string date)
 {
@@ -122,6 +120,7 @@ void BitcoinExchange::validateDate(std::string date)
     const int year = std::atoi(yearStr.c_str());
     const int month = std::atoi(monthStr.c_str());
     const int day = std::atoi(dayStr.c_str());
+    const bool isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 
     if (year <= 0 || month <= 0 || month > 12 || day <= 0)
         throw BadInputException(date);
@@ -129,7 +128,7 @@ void BitcoinExchange::validateDate(std::string date)
     static const int daysInEachMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
     int maxDay = daysInEachMonth[month - 1];
 
-    if (month == 2 && isLeapYear(year))
+    if (month == 2 && isLeapYear)
 	{
         maxDay = 29;
     }
@@ -153,12 +152,12 @@ void BitcoinExchange::validateValue(std::string value)
 void BitcoinExchange::printFormatedLine(std::string date, float value)
 {
     std::map<std::string, float>::iterator it = _dataBase.lower_bound(date);
-    if (it == _dataBase.end())
-    {
+
+    if (it->first != date)
         it--;
-    }
-    std::cout << it->first << " => " << value << " = "<< (value * it->second) << std::endl;
+    std::cout << it->first << " => " << value << " = " << (value * it->second) << std::endl;
 }
+
 
 
 /* ------------------------------- EXCEPTIONS ------------------------------- */
