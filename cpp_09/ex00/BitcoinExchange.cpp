@@ -154,10 +154,12 @@ void BitcoinExchange::printFormatedLine(std::string date, float value)
     std::map<std::string, float>::iterator it = _dataBase.lower_bound(date);
 
     if (it->first != date)
-        it--;
-    std::cout << it->first << " => " << value << " = " << (value * it->second) << std::endl;
-}
+        --it;
 
+    const float btcValue = value * it->second;
+
+    std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << btcValue << std::endl;
+}
 
 
 /* ------------------------------- EXCEPTIONS ------------------------------- */
