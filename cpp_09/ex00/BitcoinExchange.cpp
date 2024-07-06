@@ -47,7 +47,7 @@ void BitcoinExchange::csvToMap()
         if (firstLine == true)
         {
             if (line != "date,exchange_rate")
-                throw BadInputException(line);
+                throw BadInputException(line + " in data.csv");
 			firstLine = false;
         }
         else
@@ -160,7 +160,6 @@ void BitcoinExchange::printFormatedLine(std::string date, float value)
 
     std::cout << date << " => " << value << " = " << std::fixed << std::setprecision(2) << btcValue << std::endl;
 }
-
 
 /* ------------------------------- EXCEPTIONS ------------------------------- */
 
