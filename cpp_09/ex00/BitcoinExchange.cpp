@@ -77,6 +77,7 @@ void BitcoinExchange::startExchange(std::string &path)
             firstLine = false;
         else
         {
+            firstLine = false;
             if (line.find("|") == line.npos || line.empty() || line.find("|") != 11)
             {
                 std::cout << "Error: bad input => " << line << std::endl;
