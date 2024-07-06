@@ -73,12 +73,8 @@ void BitcoinExchange::startExchange(std::string &path)
     while (!inFile.eof())
     {
         getline(inFile, line);
-        if (firstLine == true)
-        {
-            if (line != "date | value")
-                throw BadInputException(line);
+        if (firstLine == true && line == "date | value")
             firstLine = false;
-        }
         else
         {
             if (line.find("|") == line.npos || line.empty() || line.find("|") != 11)
