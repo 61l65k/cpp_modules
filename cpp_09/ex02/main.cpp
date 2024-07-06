@@ -54,7 +54,7 @@ int main(int argc, char **argv)
     }
     catch(std::exception &e)
     {
-        std::cout << e.what();
+        std::cerr << e.what();
     }
 
     std::cout << "\n\nCOMPARE WITH std::sort that uses introsort (hybrid of quicksort, heapsort, and insertion sort)\n" << std::endl;
@@ -77,7 +77,7 @@ int main(int argc, char **argv)
     }
     catch (std::exception &e)
     {
-        std::cout << e.what();
+        std::cerr << e.what();
     }
 
     return 0;
